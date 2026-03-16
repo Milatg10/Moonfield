@@ -44,9 +44,6 @@ TagManager:
   - name: Background
     uniqueID: 2816793439
     locked: 0
-  - name: Buildings
-    uniqueID: 3716581371
-    locked: 0
   - name: Personaje
     uniqueID: 2342332539
     locked: 0
