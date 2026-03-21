@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aed0cbf9d3d3e894497ae68cadb2dd0c, type: 3}
+  m_Name: Pam01Inicio
+  m_EditorClassIdentifier: Assembly-CSharp::NodoDialogo
+  nombreNPC: Pam
+  colorNombre: {r: 1, g: 0.7137255, b: 0.7568628, a: 1}
+  textoDelNPC: "\xA1Ay, cielo! M\xEDrate... \xA1Has vuelto! Qui\xE9n nos iba a decir
+    que la gran ciudad y esa universidad tan cara te iban a devolver tan pronto.
+    (Y sin el t\xEDtulo, cari\xF1o, que las noticias vuelan...). Pero bueno, aqu\xED
+    est\xE1s, de vuelta en el nido. \xBFC\xF3mo te encuentras, tesoro?"
+  respuestas:
+  - textoBoton: "Ha sido duro, Pam, pero tengo muchas ganas de empezar de cero aqu\xED
+      y trabajar."
+    siguienteNodo: {fileID: 11400000, guid: 4ff6c67289c3da14ab1503f40ed8da60, type: 2}
+    cambioAmistad: 1
+  - textoBoton: "Preferir\xEDa no hablar de la universidad. Vengo por la granja."
+    siguienteNodo: {fileID: 11400000, guid: 243d6bd378d8a124a8efc355a0377646, type: 2}
+    cambioAmistad: -1
+  - textoBoton: "Pues aqu\xED estoy. \xA1He venido por el alquiler gratis!"
+    siguienteNodo: {fileID: 11400000, guid: 0b679a6b629ec804eb6c00b4727af807, type: 2}
+    cambioAmistad: 0

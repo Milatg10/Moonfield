@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aed0cbf9d3d3e894497ae68cadb2dd0c, type: 3}
+  m_Name: Pam02CBroma
+  m_EditorClassIdentifier: Assembly-CSharp::NodoDialogo
+  nombreNPC: Pam
+  colorNombre: {r: 1, g: 0.7137255, b: 0.7568628, a: 1}
+  textoDelNPC: "\xA1Jajaja! Ay, qu\xE9 sentido del humor tienes. Me encanta. (M\xE1s
+    te vale que no sea una broma a la hora de pagarme...). La vieja granja te est\xE1
+    esperando, pero no es gratis, cielo. Pasar\xE1s por caja cada 30 d\xEDas sin
+    retrasos. \xBFEntendido?"
+  respuestas:
+  - textoBoton: "Claro que s\xED, Pam. No te defraudar\xE9. Cuidar\xE9 muy bien de
+      las tierras."
+    siguienteNodo: {fileID: 0}
+    cambioAmistad: 1
+  - textoBoton: "Entendido. \xBFY c\xF3mo se supone que debo de empezar sin una herramienta?"
+    siguienteNodo: {fileID: 0}
+    cambioAmistad: 0
+  - textoBoton: El alquiler me parece un poco caro para un trozo de tierra lleno
+      de hierbajos...
+    siguienteNodo: {fileID: 0}
+    cambioAmistad: -1

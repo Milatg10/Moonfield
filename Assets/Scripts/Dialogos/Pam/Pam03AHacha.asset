@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aed0cbf9d3d3e894497ae68cadb2dd0c, type: 3}
+  m_Name: Pam03AHacha
+  m_EditorClassIdentifier: Assembly-CSharp::NodoDialogo
+  nombreNPC: Pam
+  colorNombre: {r: 1, g: 0.7137255, b: 0.7568628, a: 1}
+  textoDelNPC: "Ay, es imposible no quererte. Se nota que tienes buenas intenciones.
+    Mira, la granja est\xE1 hecha un desastre y no quiero que te rompas una u\xF1a
+    el primer d\xEDa. Toma esta vieja Hacha que usaba mi marido para limpiar la parcela.
+    (Consid\xE9ralo un pr\xE9stamo con 0% de inter\xE9s... por ahora). \xA1A trabajar,
+    cielo!"
+  respuestas: []

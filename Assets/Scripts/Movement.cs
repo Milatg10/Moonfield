@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    [Header("Estado")]
+    public bool puedeMoverse = true;
     public float speed = 5f;
     public Animator animator;
     
@@ -17,6 +19,22 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
+        if (!puedeMoverse)
+        {
+            // --- ¡NUEVO Y CRUCIAL! ---
+            // Forzamos la dirección a cero para que FixedUpdate no mueva el Rigidbody
+            direction = Vector2.zero; 
+            // --------------------------
+
+            // Clavamos los frenos de la física poniéndola a cero
+            // Nota: GetComponent<Rigidbody2D>() está bien, pero 'rb' es más rápido ya que lo buscamos en Start
+            rb.linearVelocity = Vector2.zero;
+
+            AnimateMovement(Vector2.zero); // Apaga la animación de caminar
+
+            // Nos salimos para no leer las teclas
+            return; 
+        }
         // Obtener input del jugador (esto se queda en Update para que sea rápido)
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
