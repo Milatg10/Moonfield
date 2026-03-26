@@ -28,10 +28,19 @@ public class ControladorDialogo : MonoBehaviour
     // ¡OJO! Cambia "MovimientoJugador" por el nombre real de tu script de mover al personaje
     public Movement scriptDelJugador;
 
+    public SistemaInventario inventario; // Inventario
+    public ObjetoInventario hachaParaEntregar; // El objeto que le daremos al jugador si la amistad es buena
+
+    [Header("Referencias UI Extras")]
+    public GameObject interfazInventario; // Aquí arrastraremos la barra completa con su fondo
+
     // Esta función la llamaremos cuando el jugador se acerque a Pam
     public void IniciarDialogo(NodoDialogo primerNodo)
     {
         if (scriptDelJugador != null) scriptDelJugador.puedeMoverse = false; // Bloqueamos el movimiento del jugador al iniciar el diálogo
+
+        if (interfazInventario != null) interfazInventario.SetActive(false); // Esconde la barra de inventario durante el diálogo
+
         amistadPam = 0; // Empezamos de cero
         cajaDialogo.SetActive(true); // Encendemos la UI
         MostrarNodo(primerNodo);
@@ -108,21 +117,29 @@ public class ControladorDialogo : MonoBehaviour
 
     public void CerrarDialogo()
     {
-        if (scriptDelJugador != null) scriptDelJugador.puedeMoverse = true; // Desbloqueamos el movimiento del jugador al cerrar el diálogo
         cajaDialogo.SetActive(false); // Apaga la UI
         
-        // ¡Aquí en el futuro pondremos el código para que el hacha aparezca en tu inventario!
+        // Damos el hacha en secreto 
         if (amistadPam >= 1) {
             Debug.Log("¡Pam te ha dado el Hacha!"); 
-        } else {
-            Debug.Log("Pam se ha ido sin darte nada.");
+            if (inventario != null && hachaParaEntregar != null) {
+                inventario.AñadirObjeto(hachaParaEntregar);
+            }
         }
 
-        // Si alguien nos dejó un recado, lo ejecutamos ahora
+        // ¿Alguien nos dejó un recado para hacer una película (como la puerta)?
         if (eventoAlCerrar != null)
         {
-            eventoAlCerrar.Invoke(); // ¡Ejecuta el recado!
-            eventoAlCerrar = null; // Borramos el recado para el siguiente diálogo
+            eventoAlCerrar.Invoke(); // Ejecutamos la película de la puerta
+            eventoAlCerrar = null;   // Borramos el recado
+        }
+        else 
+        {
+            // --- ¡LO NUEVO! ---
+            // ¡NO hay película! (Ha sido el tronco o un cartel normal)
+            // Devolvemos el control inmediatamente al jugador
+            if (interfazInventario != null) interfazInventario.SetActive(true);
+            if (scriptDelJugador != null) scriptDelJugador.puedeMoverse = true;
         }
     }
 

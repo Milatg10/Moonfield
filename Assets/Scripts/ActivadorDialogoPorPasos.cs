@@ -51,26 +51,36 @@ public class ActivadorDialogoPorPasos : MonoBehaviour
     {
         Color c = pantallaNegra.color;
 
-        // 1. Oscurecer la pantalla poco a poco hasta que esté negra (Alpha = 1)
+        // 1. Oscurecer la pantalla poco a poco
         while (c.a < 1f)
         {
             c.a += Time.deltaTime * velocidadFade;
             pantallaNegra.color = c;
-            yield return null; // Esperamos al siguiente fotograma
+            yield return null; 
         }
 
-        // 2. ¡Hacemos el cambiazo en la oscuridad! Pam desaparece.
+        // 2. Cambiazo en la oscuridad
         cuerpoDePam.SetActive(false);
-        
-        // Esperamos medio segundo en negro para que no sea tan brusco
         yield return new WaitForSeconds(0.5f);
 
-        // 3. Volver a aclarar la pantalla poco a poco (Alpha = 0)
+        // 3. Volver a aclarar la pantalla
         while (c.a > 0f)
         {
             c.a -= Time.deltaTime * velocidadFade;
             pantallaNegra.color = c;
             yield return null;
+        }
+
+        // --- ¡LO NUEVO! ---
+        // 4. ¡Fin de la película! Ahora SÍ devolvemos el inventario y el movimiento
+        if (controlador.interfazInventario != null)
+        {
+            controlador.interfazInventario.SetActive(true);
+        }
+        
+        if (controlador.scriptDelJugador != null)
+        {
+            controlador.scriptDelJugador.puedeMoverse = true;
         }
     }
 }
