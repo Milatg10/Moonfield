@@ -71,7 +71,6 @@ public class ActivadorDialogoPorPasos : MonoBehaviour
             yield return null;
         }
 
-        // --- ¡LO NUEVO! ---
         // 4. ¡Fin de la película! Ahora SÍ devolvemos el inventario y el movimiento
         if (controlador.interfazInventario != null)
         {

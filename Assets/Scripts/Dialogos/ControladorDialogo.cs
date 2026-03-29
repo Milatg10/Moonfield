@@ -34,12 +34,21 @@ public class ControladorDialogo : MonoBehaviour
     [Header("Referencias UI Extras")]
     public GameObject interfazInventario; // Aquí arrastraremos la barra completa con su fondo
 
+    [Header("Conexión con el Reloj")]
+    public RelojJuego relojDelJuego; // Para poder pausarlo
+
     // Esta función la llamaremos cuando el jugador se acerque a Pam
     public void IniciarDialogo(NodoDialogo primerNodo)
     {
         if (scriptDelJugador != null) scriptDelJugador.puedeMoverse = false; // Bloqueamos el movimiento del jugador al iniciar el diálogo
 
         if (interfazInventario != null) interfazInventario.SetActive(false); // Esconde la barra de inventario durante el diálogo
+
+        // Pausamos el tiempo mientras hablamos
+        if (relojDelJuego != null)
+        {
+            relojDelJuego.elTiempoPasa = false;
+        }
 
         amistadPam = 0; // Empezamos de cero
         cajaDialogo.SetActive(true); // Encendemos la UI
@@ -118,10 +127,15 @@ public class ControladorDialogo : MonoBehaviour
     public void CerrarDialogo()
     {
         cajaDialogo.SetActive(false); // Apaga la UI
+
+        // Reanudamos el tiempo SIEMPRE que se cierre la caja, sin importar lo que pase después
+        if (relojDelJuego != null)
+        {
+            relojDelJuego.elTiempoPasa = true;
+        }
         
         // Damos el hacha en secreto 
         if (amistadPam >= 1) {
-            Debug.Log("¡Pam te ha dado el Hacha!"); 
             if (inventario != null && hachaParaEntregar != null) {
                 inventario.AñadirObjeto(hachaParaEntregar);
             }
@@ -130,28 +144,15 @@ public class ControladorDialogo : MonoBehaviour
         // ¿Alguien nos dejó un recado para hacer una película (como la puerta)?
         if (eventoAlCerrar != null)
         {
-            eventoAlCerrar.Invoke(); // Ejecutamos la película de la puerta
+            eventoAlCerrar.Invoke(); // Ejecutamos la película 
             eventoAlCerrar = null;   // Borramos el recado
         }
         else 
         {
-            // --- ¡LO NUEVO! ---
-            // ¡NO hay película! (Ha sido el tronco o un cartel normal)
-            // Devolvemos el control inmediatamente al jugador
+            // ¡NO hay película! Devolvemos el control inmediatamente al jugador
             if (interfazInventario != null) interfazInventario.SetActive(true);
             if (scriptDelJugador != null) scriptDelJugador.puedeMoverse = true;
         }
     }
 
-    [Header("Prueba Rapida")]
-    public NodoDialogo nodoDeArranque;
-
-    void Update()
-    {
-        // Si pulsas la barra espaciadora y la caja de diálogo está apagada... ¡Arranca!
-        if (Input.GetKeyDown(KeyCode.Space) && cajaDialogo.activeSelf == false)
-        {
-            IniciarDialogo(nodoDeArranque);
-        }
-    }
 }
