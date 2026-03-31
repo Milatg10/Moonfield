@@ -1,0 +1,1547 @@
+fileFormatVersion: 2
+guid: b32f08104eeafcf4d8eff33de46c47d4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7696296455479678283
+    second: Assets-AVENTURE_0
+  - first:
+      213: 3850159831936170731
+    second: Assets-AVENTURE_1
+  - first:
+      213: 3048892785460955990
+    second: Assets-AVENTURE_2
+  - first:
+      213: -2784976901468485704
+    second: Assets-AVENTURE_3
+  - first:
+      213: -6807599505772082247
+    second: Assets-AVENTURE_4
+  - first:
+      213: 7724086838406714284
+    second: Assets-AVENTURE_5
+  - first:
+      213: -2064510711141854559
+    second: Assets-AVENTURE_6
+  - first:
+      213: -7738128915387889785
+    second: Assets-AVENTURE_7
+  - first:
+      213: -7637324645413407552
+    second: Assets-AVENTURE_8
+  - first:
+      213: 6646492582134556434
+    second: Assets-AVENTURE_9
+  - first:
+      213: -6009753749007060585
+    second: Assets-AVENTURE_10
+  - first:
+      213: -3127608275606968356
+    second: Assets-AVENTURE_11
+  - first:
+      213: 6631125779647014846
+    second: Assets-AVENTURE_12
+  - first:
+      213: 1653402980032967887
+    second: Assets-AVENTURE_13
+  - first:
+      213: -2914106994979674542
+    second: Assets-AVENTURE_14
+  - first:
+      213: 7191174250150884672
+    second: Assets-AVENTURE_15
+  - first:
+      213: -7704326186779464376
+    second: Assets-AVENTURE_16
+  - first:
+      213: -8375200811933207243
+    second: Assets-AVENTURE_17
+  - first:
+      213: 1378481814012072693
+    second: Assets-AVENTURE_18
+  - first:
+      213: -1420792176391317509
+    second: Assets-AVENTURE_19
+  - first:
+      213: 5949136610468611955
+    second: Assets-AVENTURE_20
+  - first:
+      213: 8879869569662038336
+    second: Assets-AVENTURE_21
+  - first:
+      213: 8592935190456060561
+    second: Assets-AVENTURE_22
+  - first:
+      213: -5204371208050692388
+    second: Assets-AVENTURE_23
+  - first:
+      213: 2581811226392614267
+    second: Assets-AVENTURE_24
+  - first:
+      213: -7563909716418107
+    second: Assets-AVENTURE_25
+  - first:
+      213: 5571335847769892331
+    second: Assets-AVENTURE_26
+  - first:
+      213: 4230956186292459410
+    second: Assets-AVENTURE_27
+  - first:
+      213: 945433779620246589
+    second: Assets-AVENTURE_28
+  - first:
+      213: -1386393272476405615
+    second: Assets-AVENTURE_29
+  - first:
+      213: 8545913425790475658
+    second: Assets-AVENTURE_30
+  - first:
+      213: 3959374524607758171
+    second: Assets-AVENTURE_31
+  - first:
+      213: -8768810485203812005
+    second: Assets-AVENTURE_32
+  - first:
+      213: -1913111438568845377
+    second: Assets-AVENTURE_33
+  - first:
+      213: -4334534881687689705
+    second: Assets-AVENTURE_34
+  - first:
+      213: -1901778376888337472
+    second: Assets-AVENTURE_35
+  - first:
+      213: -3269271108562468943
+    second: Assets-AVENTURE_36
+  - first:
+      213: 3973874537003058898
+    second: Assets-AVENTURE_37
+  - first:
+      213: 6602025665159368413
+    second: Assets-AVENTURE_38
+  - first:
+      213: -9105403272274229018
+    second: Assets-AVENTURE_39
+  - first:
+      213: -8576856873066775423
+    second: Assets-AVENTURE_40
+  - first:
+      213: -4949232833077830479
+    second: Assets-AVENTURE_41
+  - first:
+      213: -740432876959346852
+    second: Assets-AVENTURE_42
+  - first:
+      213: -7654447110825914143
+    second: Assets-AVENTURE_43
+  - first:
+      213: 5127680963569252820
+    second: Assets-AVENTURE_44
+  - first:
+      213: -1844042689051778344
+    second: Assets-AVENTURE_45
+  - first:
+      213: 1774295283083200463
+    second: Assets-AVENTURE_46
+  - first:
+      213: 3968217826816009530
+    second: Assets-AVENTURE_47
+  - first:
+      213: 3382935269249827324
+    second: Assets-AVENTURE_48
+  - first:
+      213: 4741043918350612012
+    second: Assets-AVENTURE_49
+  - first:
+      213: 5466527780622698437
+    second: Assets-AVENTURE_50
+  - first:
+      213: -5301568089608601843
+    second: Assets-AVENTURE_51
+  - first:
+      213: 5241702762992185390
+    second: Assets-AVENTURE_52
+  - first:
+      213: -381878358824653246
+    second: Assets-AVENTURE_53
+  - first:
+      213: -8532281917969375222
+    second: Assets-AVENTURE_54
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Assets-AVENTURE_0
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 150
+        width: 59
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ba29058623413590800000000000000
+      internalID: -7696296455479678283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_1
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 142
+        width: 13
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bea7807d7f38e6530800000000000000
+      internalID: 3850159831936170731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_2
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 142
+        width: 13
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65bc6aba5d7df4a20800000000000000
+      internalID: 3048892785460955990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_3
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 142
+        width: 13
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b78d487346c959d0800000000000000
+      internalID: -2784976901468485704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_4
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 142
+        width: 13
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bb8455515c8681a0800000000000000
+      internalID: -6807599505772082247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_5
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 142
+        width: 13
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca390893e08713b60800000000000000
+      internalID: 7724086838406714284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_6
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 142
+        width: 13
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a2966b42726953e0800000000000000
+      internalID: -2064510711141854559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_7
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 142
+        width: 13
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7874024ffb4ac9490800000000000000
+      internalID: -7738128915387889785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_8
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 142
+        width: 13
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c43cc303b5c20690800000000000000
+      internalID: -7637324645413407552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_9
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 149
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2172660f9c51d3c50800000000000000
+      internalID: 6646492582134556434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_10
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 149
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 791bcda6ec0199ca0800000000000000
+      internalID: -6009753749007060585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_11
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 111
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd7efd718d08894d0800000000000000
+      internalID: -3127608275606968356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_12
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 111
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb7abcc63cd760c50800000000000000
+      internalID: 6631125779647014846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_13
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 111
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc4ff6f004112f610800000000000000
+      internalID: 1653402980032967887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_14
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 111
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25661cea0230f87d0800000000000000
+      internalID: -2914106994979674542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_15
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 115
+        width: 59
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 045fd2a41ee2cc360800000000000000
+      internalID: 7191174250150884672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_16
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 97
+        width: 13
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84d2543072cb41590800000000000000
+      internalID: -7704326186779464376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_17
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 97
+        width: 13
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 535782a3c3f45cb80800000000000000
+      internalID: -8375200811933207243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_18
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 97
+        width: 13
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f2968508e9512310800000000000000
+      internalID: 1378481814012072693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_19
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 97
+        width: 13
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf79a821b05584ce0800000000000000
+      internalID: -1420792176391317509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_20
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 97
+        width: 13
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 377c0433a349f8250800000000000000
+      internalID: 5949136610468611955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_21
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 97
+        width: 13
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 041b1877352ab3b70800000000000000
+      internalID: 8879869569662038336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_22
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 97
+        width: 13
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19a4615470d304770800000000000000
+      internalID: 8592935190456060561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_23
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 97
+        width: 13
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cde2ed0d5fb56c7b0800000000000000
+      internalID: -5204371208050692388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_24
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 112
+        width: 105
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b755f32a1af64d320800000000000000
+      internalID: 2581811226392614267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_25
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 79
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c16d380aa025eff0800000000000000
+      internalID: -7563909716418107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_26
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 79
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be569b27f6c515d40800000000000000
+      internalID: 5571335847769892331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_27
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 79
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29714302c3067ba30800000000000000
+      internalID: 4230956186292459410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_28
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 79
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d347be0730bde1d00800000000000000
+      internalID: 945433779620246589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_29
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 83
+        width: 59
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1907d030aaa82cce0800000000000000
+      internalID: -1386393272476405615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_30
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 47
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8d9b798bfe299670800000000000000
+      internalID: 8545913425790475658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_31
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 47
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5ff9f7072682f630800000000000000
+      internalID: 3959374524607758171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_32
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 47
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b51c4b6a25dee4680800000000000000
+      internalID: -8768810485203812005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_33
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 47
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbf0e5068434375e0800000000000000
+      internalID: -1913111438568845377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_34
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 52
+        width: 59
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 716277e8d73a8d3c0800000000000000
+      internalID: -4334534881687689705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_35
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 57
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cb3d0c64a68b95e0800000000000000
+      internalID: -1901778376888337472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_36
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 57
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bfbfa38f3731a2d0800000000000000
+      internalID: -3269271108562468943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_37
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 57
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d6890046d9062730800000000000000
+      internalID: 3973874537003058898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_38
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 57
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dde06d90d5b1f9b50800000000000000
+      internalID: 6602025665159368413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_39
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 57
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e84a6367fb13a180800000000000000
+      internalID: -9105403272274229018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_40
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 57
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18cbc77bd12e8f880800000000000000
+      internalID: -8576856873066775423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_41
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 21
+        width: 59
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bc12b1e5fac05bb0800000000000000
+      internalID: -4949232833077830479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_42
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 40
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5f41dca83479b5f0800000000000000
+      internalID: -740432876959346852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_43
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 40
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e0d43f58e0f5c590800000000000000
+      internalID: -7654447110825914143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_44
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 40
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d9f3133bae292740800000000000000
+      internalID: 5127680963569252820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_45
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 41
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d2a968c1f4a866e0800000000000000
+      internalID: -1844042689051778344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_46
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 26
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc743dac8209f9810800000000000000
+      internalID: 1774295283083200463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_47
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 41
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a35adb6c611f11730800000000000000
+      internalID: 3968217826816009530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_48
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 26
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf1c6cd24b992fe20800000000000000
+      internalID: 3382935269249827324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_49
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 41
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2670d913529bc140800000000000000
+      internalID: 4741043918350612012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_50
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 14
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c702d6bd020ddb40800000000000000
+      internalID: 5466527780622698437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_51
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 15
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0f355259eb0d66b0800000000000000
+      internalID: -5301568089608601843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_52
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 15
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e20355624e44eb840800000000000000
+      internalID: 5241702762992185390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_53
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 23
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24ee8dae7ab43baf0800000000000000
+      internalID: -381878358824653246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-AVENTURE_54
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 23
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0062f33dce379980800000000000000
+      internalID: -8532281917969375222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Assets-AVENTURE_0: -7696296455479678283
+      Assets-AVENTURE_1: 3850159831936170731
+      Assets-AVENTURE_10: -6009753749007060585
+      Assets-AVENTURE_11: -3127608275606968356
+      Assets-AVENTURE_12: 6631125779647014846
+      Assets-AVENTURE_13: 1653402980032967887
+      Assets-AVENTURE_14: -2914106994979674542
+      Assets-AVENTURE_15: 7191174250150884672
+      Assets-AVENTURE_16: -7704326186779464376
+      Assets-AVENTURE_17: -8375200811933207243
+      Assets-AVENTURE_18: 1378481814012072693
+      Assets-AVENTURE_19: -1420792176391317509
+      Assets-AVENTURE_2: 3048892785460955990
+      Assets-AVENTURE_20: 5949136610468611955
+      Assets-AVENTURE_21: 8879869569662038336
+      Assets-AVENTURE_22: 8592935190456060561
+      Assets-AVENTURE_23: -5204371208050692388
+      Assets-AVENTURE_24: 2581811226392614267
+      Assets-AVENTURE_25: -7563909716418107
+      Assets-AVENTURE_26: 5571335847769892331
+      Assets-AVENTURE_27: 4230956186292459410
+      Assets-AVENTURE_28: 945433779620246589
+      Assets-AVENTURE_29: -1386393272476405615
+      Assets-AVENTURE_3: -2784976901468485704
+      Assets-AVENTURE_30: 8545913425790475658
+      Assets-AVENTURE_31: 3959374524607758171
+      Assets-AVENTURE_32: -8768810485203812005
+      Assets-AVENTURE_33: -1913111438568845377
+      Assets-AVENTURE_34: -4334534881687689705
+      Assets-AVENTURE_35: -1901778376888337472
+      Assets-AVENTURE_36: -3269271108562468943
+      Assets-AVENTURE_37: 3973874537003058898
+      Assets-AVENTURE_38: 6602025665159368413
+      Assets-AVENTURE_39: -9105403272274229018
+      Assets-AVENTURE_4: -6807599505772082247
+      Assets-AVENTURE_40: -8576856873066775423
+      Assets-AVENTURE_41: -4949232833077830479
+      Assets-AVENTURE_42: -740432876959346852
+      Assets-AVENTURE_43: -7654447110825914143
+      Assets-AVENTURE_44: 5127680963569252820
+      Assets-AVENTURE_45: -1844042689051778344
+      Assets-AVENTURE_46: 1774295283083200463
+      Assets-AVENTURE_47: 3968217826816009530
+      Assets-AVENTURE_48: 3382935269249827324
+      Assets-AVENTURE_49: 4741043918350612012
+      Assets-AVENTURE_5: 7724086838406714284
+      Assets-AVENTURE_50: 5466527780622698437
+      Assets-AVENTURE_51: -5301568089608601843
+      Assets-AVENTURE_52: 5241702762992185390
+      Assets-AVENTURE_53: -381878358824653246
+      Assets-AVENTURE_54: -8532281917969375222
+      Assets-AVENTURE_6: -2064510711141854559
+      Assets-AVENTURE_7: -7738128915387889785
+      Assets-AVENTURE_8: -7637324645413407552
+      Assets-AVENTURE_9: 6646492582134556434
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
