@@ -1,6 +1,6 @@
 using UnityEngine;
-using UnityEngine.UI; // ¡NUEVO! Necesario para manejar la imagen negra
-using System.Collections; // ¡NUEVO! Necesario para las Corrutinas (el tiempo)
+using UnityEngine.UI; 
+using System.Collections; 
 
 public class ActivadorDialogoPorPasos : MonoBehaviour
 {
@@ -8,9 +8,12 @@ public class ActivadorDialogoPorPasos : MonoBehaviour
     public NodoDialogo dialogoDePam; 
     public GameObject cuerpoDePam; 
     
+    [Header("=== CONEXIÓN CON LA IA ===")]
+    public NPCController cerebroDePam; // ¡NUEVO! Arrastra aquí a Pam
+
     [Header("Efecto Cinemática")]
-    public Image pantallaNegra; // Aquí arrastraremos nuestro panel negro
-    public float velocidadFade = 1.5f; // Lo rápido que se oscurece
+    public Image pantallaNegra; 
+    public float velocidadFade = 1.5f; 
 
     private ControladorDialogo controlador;
     public bool yaHaHablado = false; 
@@ -19,7 +22,6 @@ public class ActivadorDialogoPorPasos : MonoBehaviour
     {
         controlador = FindObjectOfType<ControladorDialogo>();
         
-        // Nos aseguramos de que la pantalla empiece transparente por si acaso
         if (pantallaNegra != null)
         {
             Color c = pantallaNegra.color;
@@ -32,26 +34,35 @@ public class ActivadorDialogoPorPasos : MonoBehaviour
     {
         if (otroObjeto.CompareTag("Player") && !yaHaHablado)
         {
-            // Le dejamos el recado al cerebro de que llame a IniciarDespedida
-            controlador.eventoAlCerrar += IniciarDespedida;
-            controlador.IniciarDialogo(dialogoDePam);
             yaHaHablado = true;
+
+            // PREGUNTAMOS QUÉ MODO ESTÁ ACTIVO
+            if (cerebroDePam != null && cerebroDePam.modoIAActivo)
+            {
+                // ---- MODO IA ----
+                // Abre el cajetín de texto en vez de los botones
+                cerebroDePam.Hablar(); 
+            }
+            else
+            {
+                // ---- MODO CLÁSICO ----
+                // Deja el recado de la película y lanza los botones
+                controlador.eventoAlCerrar += IniciarDespedida;
+                controlador.IniciarDialogo(dialogoDePam);
+            }
         }
     }
 
-    // El cerebro llama a esta función al cerrar el diálogo
-    void IniciarDespedida()
+    // Esta función la haremos pública más adelante para que la IA también pueda lanzar la película
+    public void IniciarDespedida()
     {
-        // StartCoroutine arranca una función que puede durar varios segundos
         StartCoroutine(RutinaFundidoANegro()); 
     }
 
-    // Esta es la "película" que se reproduce paso a paso
     IEnumerator RutinaFundidoANegro()
     {
         Color c = pantallaNegra.color;
 
-        // 1. Oscurecer la pantalla poco a poco
         while (c.a < 1f)
         {
             c.a += Time.deltaTime * velocidadFade;
@@ -59,11 +70,9 @@ public class ActivadorDialogoPorPasos : MonoBehaviour
             yield return null; 
         }
 
-        // 2. Cambiazo en la oscuridad
         cuerpoDePam.SetActive(false);
         yield return new WaitForSeconds(0.5f);
 
-        // 3. Volver a aclarar la pantalla
         while (c.a > 0f)
         {
             c.a -= Time.deltaTime * velocidadFade;
@@ -71,7 +80,6 @@ public class ActivadorDialogoPorPasos : MonoBehaviour
             yield return null;
         }
 
-        // 4. ¡Fin de la película! Ahora SÍ devolvemos el inventario y el movimiento
         if (controlador.interfazInventario != null)
         {
             controlador.interfazInventario.SetActive(true);
