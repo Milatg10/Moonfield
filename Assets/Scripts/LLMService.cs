@@ -14,8 +14,6 @@ public class LLMService : MonoBehaviour
     {
         LoadApiKey();
 
-        // Comentarla para no gastar tokens en pruebas
-        //StartCoroutine(CallAI("Eres un NPC de un juego RPG.", "¡Hola! ¿Qué vendes?"));
     }
 
     void LoadApiKey()

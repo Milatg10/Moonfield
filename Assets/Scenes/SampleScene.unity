@@ -13179,7 +13179,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: "\u200B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -13258,6 +13258,143 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 178459733}
+  m_CullTransparentMesh: 1
+--- !u!1 &240062915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 240062916}
+  - component: {fileID: 240062918}
+  - component: {fileID: 240062917}
+  m_Layer: 5
+  m_Name: TextoPulsarInicial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &240062916
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240062915}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 886218548}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2, y: -285}
+  m_SizeDelta: {x: 608.5416, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &240062917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240062915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Pulsa enter para comenzar tu aventura
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: d9b2525e5ccc20144bcd9d296d020655, type: 2}
+  m_sharedMaterial: {fileID: -8861427429045887402, guid: d9b2525e5ccc20144bcd9d296d020655, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4286097744
+  m_fontColor: {r: 0.3137255, g: 0.6627451, b: 0.47058827, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 35
+  m_fontSizeBase: 35
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &240062918
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240062915}
   m_CullTransparentMesh: 1
 --- !u!1 &266014968
 GameObject:
@@ -76422,6 +76559,7 @@ MonoBehaviour:
   contenedorInterfazIA: {fileID: 0}
   cajetinEntrada: {fileID: 0}
   botonEnviar: {fileID: 0}
+  zonaBotones: {fileID: 0}
   hachaParaEntregar: {fileID: 0}
   nombreNPC: Emma
 --- !u!95 &374718916
@@ -77087,6 +77225,7 @@ GameObject:
   m_Component:
   - component: {fileID: 493903220}
   - component: {fileID: 493903219}
+  - component: {fileID: 493903221}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -77121,6 +77260,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &493903221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493903218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a43d58688dcccd740899d8affd1c3931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PantallaIntro
+  panelIntro: {fileID: 886218547}
+  scriptDelJugador: {fileID: 1435292148}
 --- !u!1 &509814800
 GameObject:
   m_ObjectHideFlags: 0
@@ -78893,27 +79046,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e536c93eea86ec24bbe2e31cca697f34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCController
-  modoIAActivo: 1
+  modoIAActivo: 0
   controladorClasico: {fileID: 906238820}
   primerNodo: {fileID: 11400000, guid: e8318337a7b56a34b9b7702ef4f22250, type: 2}
-  npcLore: "Eres Pam, una vecina de un peque\xF1o pueblo rural y la madre de la amiga
-    de la infancia del jugador. Le alquilas al jugador la casa donde vive ahora.
-    Eres sarc\xE1stica, pesetera (te importa mucho el dinero, al estilo Tom Nook)
-    y muy desconfiada.\n\nCONTEXTO DEL JUGADOR: El jugador se fue a la ciudad a estudiar
-    una carrera universitaria, pero no la termin\xF3 y ha tenido que volver al pueblo
-    fracasado. Por eso, le hablas con un tono ligeramente superior y decepcionado.\n\nOBJETIVO
-    DE LA CONVERSACI\xD3N: El jugador necesita que le prestes tu hacha.\n\nREGLAS
-    ESTRICTAS DE COMPORTAMIENTO:\n\nRespuestas cortas: Responde siempre en un m\xE1ximo
-    de 2 o 3 frases. Esto es un videojuego.\n\nEvaluaci\xF3n de actitud: El jugador
-    tiene unos pocos intentos para convencerte. Eval\xFAa su nivel de educaci\xF3n
-    en cada mensaje.\n\nSi el jugador es borde, te exige las cosas, te insulta o
-    tiene un comportamiento extra\xF1o: Resp\xF3ndele con sarcasmo, recu\xE9rdale
-    su fracaso en la universidad y NI\xC9GATE a darle el hacha.\n\nSi el jugador
-    es muy educado, amable y se gana tu confianza: Acepta prestarle el hacha de mala
-    gana (diciendo que te la devuelva o le cobrar\xE1s).\n\nEL C\xD3DIGO SECRETO
-    (CR\xCDTICO): \xDANICAMENTE si decides darle el hacha, DEBES terminar tu mensaje
-    escribiendo exactamente esta etiqueta: [DAR_HACHA] . Si no se la das, NO escribas
-    esa etiqueta bajo ning\xFAn concepto."
+  npcLore: "Eres Pam, la casera del jugador en un peque\xF1o pueblo. Te hace gracia
+    que el jugador fracasara en la universidad y tuviera que volver al pueblo.\r\nTONO:
+    Amable pero usas sarcasmo humor\xEDstico (estilo Jim de The Office), poniendo
+    tus pensamientos ir\xF3nicos entre par\xE9ntesis.\r\nOBJETIVO: El jugador quiere
+    tu hacha. Eval\xFAa SU \xDALTIMO MENSAJE con estas reglas MUY ESTRICTAS:\r\nAMABLE
+    Y SIMP\xC1TICO (\xC9XITO): El jugador se lo curra y es carism\xE1tico (ej. te
+    pregunta c\xF3mo est\xE1s, te hace la pelota o es excepcionalmente simp\xE1tico).
+    ATENCI\xD3N: Decir simplemente \"Hola, \xBFme prestas el hacha por favor?\" NO
+    es suficiente. Si se esfuerza un poco m\xE1s, tampoco mucho, haz un comentario
+    sarc\xE1stico divertido y escribe AL FINAL EXACTAMENTE: [DAR_HACHA]\r\nNEUTRAL
+    (CONTIN\xDAA): El jugador es educado pero va al grano (ej. \"Hola Pam, necesito
+    el hacha por favor\" o \"\xBFMe la dejas?\"). Resp\xF3ndele con sarcasmo, dile
+    que se lo curre un poco m\xE1s si quiere un favor, y NO escribas ninguna etiqueta.\r\nMALEDUCADO
+    (FRACASO INMEDIATO): Si el jugador te exige el hacha, es seco, no saluda o te
+    falta al respeto. Haz un comentario ofendida sobre sus modales de ciudad y escribe
+    AL FINAL EXACTAMENTE: [MALEDUCADO]\r\nREGLA DE FORMATO: Responde en un m\xE1ximo
+    de 2 o 3 frases.\r\n"
   cerebroIA: {fileID: 493903219}
   textoPantalla: {fileID: 1747232484}
   textoNombre: {fileID: 623581864}
@@ -78921,6 +79073,7 @@ MonoBehaviour:
   contenedorInterfazIA: {fileID: 1176586921}
   cajetinEntrada: {fileID: 1752523536}
   botonEnviar: {fileID: 1137911459}
+  zonaBotones: {fileID: 1544571263}
   hachaParaEntregar: {fileID: 11400000, guid: 2c3dcaab5c0aa704ba19130bb2764274, type: 2}
   nombreNPC: Pam
 --- !u!1 &811092296
@@ -79701,6 +79854,83 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.28400803, y: 1.0824282}
   m_EdgeRadius: 0
+--- !u!1 &886218547
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 886218548}
+  - component: {fileID: 886218550}
+  - component: {fileID: 886218549}
+  m_Layer: 5
+  m_Name: PanelInicial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &886218548
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886218547}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1991457459}
+  - {fileID: 240062916}
+  m_Father: {fileID: 906238819}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 89, y: 35}
+  m_SizeDelta: {x: -1042.9165, y: -338.6963}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &886218549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886218547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 739905185230883310, guid: f9e7d372d78c68e41868c01a87443c09, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &886218550
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886218547}
+  m_CullTransparentMesh: 1
 --- !u!1 &906238815
 GameObject:
   m_ObjectHideFlags: 0
@@ -79801,6 +80031,7 @@ RectTransform:
   - {fileID: 1714780770}
   - {fileID: 1636255526}
   - {fileID: 1123645433}
+  - {fileID: 886218548}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -83974,7 +84205,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 45.81227, y: -11.1981}
+  m_AnchoredPosition: {x: 45.8125, y: -11.1981}
   m_SizeDelta: {x: 190.1268, y: 160.0379}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1495794544
@@ -86747,6 +86978,146 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CambiarCursor
   cursorMano: {fileID: 2800000, guid: 6612aac2ff30f6a42973d2523414f498, type: 3}
   puntoDeClic: {x: 0, y: 0}
+--- !u!1 &1991457458
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1991457459}
+  - component: {fileID: 1991457461}
+  - component: {fileID: 1991457460}
+  m_Layer: 5
+  m_Name: TextoInicial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1991457459
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991457458}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 886218548}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -5.7959, y: -12.4398}
+  m_SizeDelta: {x: 666.4082, y: 444.8795}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1991457460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991457458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 'Acabas de volver al pueblo tras no ser capaz de finalizar la carrera en
+    la gran ciudad... Pam, la madre de una antigua amiga, tiene una casa y se ha
+    ofrecido a cobrarte un alquiler. Tu primer objetivo es conseguir un hacha para
+    despejar el camino. Ve a hablar con Pam. '
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: d9b2525e5ccc20144bcd9d296d020655, type: 2}
+  m_sharedMaterial: {fileID: -8861427429045887402, guid: d9b2525e5ccc20144bcd9d296d020655, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 45
+  m_fontSizeBase: 45
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1991457461
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991457458}
+  m_CullTransparentMesh: 1
 --- !u!1 &2026116067
 GameObject:
   m_ObjectHideFlags: 0

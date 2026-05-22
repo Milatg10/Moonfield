@@ -21,7 +21,8 @@ public class NPCController : MonoBehaviour
     [Space(10)]
     public GameObject contenedorInterfazIA; 
     public TMP_InputField cajetinEntrada;    
-    public Button botonEnviar;               
+    public Button botonEnviar;        
+    public GameObject zonaBotones;       
 
     [Header("--- INVENTARIO Y JUEGO ---")]
     public ObjetoInventario hachaParaEntregar; 
@@ -38,7 +39,7 @@ public class NPCController : MonoBehaviour
     void Start()
     {
         if(panelDialogo != null) panelDialogo.SetActive(false);
-        if(contenedorInterfazIA != null) contenedorInterfazIA.SetActive(false);
+        if(contenedorInterfazIA != null) contenedorInterfazIA.SetActive(false); 
     }
 
     void Update()
@@ -75,19 +76,26 @@ public class NPCController : MonoBehaviour
 
         if (modoIAActivo)
         {
+            // ---- MODO IA ----
             if(contenedorInterfazIA != null) contenedorInterfazIA.SetActive(true);
             
-            // Bloqueamos el cajetín temporalmente mientras la IA genera el saludo
+            // ❌ APAGAMOS LOS BOTONES CLÁSICOS
+            if(zonaBotones != null) zonaBotones.SetActive(false);
+            
             cajetinEntrada.interactable = false; 
             textoPantalla.text = "Pam está mirándote...";
 
-            // LLAMADA 1: El propio LLM genera el saludo inicial acorde a su Lore
             string peticionSaludo = "Saluda al jugador por primera vez de forma natural según tu personalidad y contexto.";
             StartCoroutine(cerebroIA.CallAI(npcLore, peticionSaludo, MostrarSaludoInicial));
         }
         else
         {
+            // ---- MODO CLÁSICO ----
             if(contenedorInterfazIA != null) contenedorInterfazIA.SetActive(false);
+            
+            // ✅ ENCENDEMOS LOS BOTONES CLÁSICOS (por si veníamos de jugar a la IA)
+            if(zonaBotones != null) zonaBotones.SetActive(true);
+            
             if (controladorClasico != null && primerNodo != null)
                 controladorClasico.IniciarDialogo(primerNodo);
         }
@@ -131,7 +139,7 @@ public class NPCController : MonoBehaviour
 
     void MostrarRespuesta(string respuesta)
     {
-        // CASO 1: ¡ÉXITO! Nos da el hacha
+        // CASO 1: ¡ÉXITO! Nos da el hacha (Se lo ha currado)
         if (respuesta.Contains("[DAR_HACHA]"))
         {
             respuesta = respuesta.Replace("[DAR_HACHA]", "").Trim();
@@ -143,19 +151,32 @@ public class NPCController : MonoBehaviour
             
             textoPantalla.text = respuesta + "\n\n<size=75%><color=green>[Pulsa Enter para terminar]</color></size>";
             cajetinEntrada.interactable = false;
-            esperandoEnter = true; // Esperamos el Enter de lectura
+            esperandoEnter = true; 
             return;
         }
 
-        // CASO 2: FRACASO (Te quedas sin intentos. El LLM ya ha generado su respuesta de despedida enfadada)
+        // CASO 2: ¡CASTIGO! Ha sido maleducado y Pam le echa al instante
+        if (respuesta.Contains("[MALEDUCADO]"))
+        {
+            respuesta = respuesta.Replace("[MALEDUCADO]", "").Trim();
+            intentosActuales = 0; // Le quitamos todos los intentos de golpe
+            
+            textoPantalla.text = respuesta + "\n\n<size=75%><color=red>[Pam se ha ofendido. Pulsa Enter para continuar]</color></size>";
+            cajetinEntrada.interactable = false;
+            esperandoEnter = true;
+            faseMensajeMapa = true; 
+            return;
+        }
+
+        // CASO 3: FRACASO POR INTENTOS (Se quedó sin intentos siendo neutral)
         if (intentosActuales <= 0)
         {
             textoPantalla.text = respuesta + "\n\n<size=75%><color=orange>[Pulsa Enter para continuar]</color></size>";
             cajetinEntrada.interactable = false;
             esperandoEnter = true;
-            faseMensajeMapa = true; // Activamos la fase del recado del mapa
+            faseMensajeMapa = true; 
         }
-        // CASO 3: RESPUESTA NORMAL (Continúa la charla)
+        // CASO 4: RESPUESTA NEUTRAL (Continúa la charla)
         else
         {
             cajetinEntrada.interactable = true;
