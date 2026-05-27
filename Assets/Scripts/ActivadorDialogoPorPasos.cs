@@ -9,7 +9,7 @@ public class ActivadorDialogoPorPasos : MonoBehaviour
     public GameObject cuerpoDePam; 
     
     [Header("=== CONEXIÓN CON LA IA ===")]
-    public NPCController cerebroDePam; // ¡NUEVO! Arrastra aquí a Pam
+    public NPCController cerebroDePam; 
 
     [Header("Efecto Cinemática")]
     public Image pantallaNegra; 
@@ -36,17 +36,17 @@ public class ActivadorDialogoPorPasos : MonoBehaviour
         {
             yaHaHablado = true;
 
-            // PREGUNTAMOS QUÉ MODO ESTÁ ACTIVO
             if (cerebroDePam != null && cerebroDePam.modoIAActivo)
             {
                 // ---- MODO IA ----
-                // Abre el cajetín de texto en vez de los botones
+                // Le dejamos el recado al nuevo Cerebro IA
+                cerebroDePam.eventoAlCerrarIA += IniciarDespedida;
                 cerebroDePam.Hablar(); 
             }
             else
             {
                 // ---- MODO CLÁSICO ----
-                // Deja el recado de la película y lanza los botones
+                // Le dejamos el recado al Controlador Clásico antiguo
                 controlador.eventoAlCerrar += IniciarDespedida;
                 controlador.IniciarDialogo(dialogoDePam);
             }

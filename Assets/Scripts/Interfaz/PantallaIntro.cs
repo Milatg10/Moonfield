@@ -3,33 +3,29 @@ using UnityEngine;
 public class PantallaIntro : MonoBehaviour
 {
     [Header("=== INTERFAZ ===")]
-    public GameObject panelIntro; // Arrastra aquí el Panel_Intro del Canvas
+    public GameObject panelIntro; 
 
     [Header("=== CONEXIONES ===")]
-    public Movement scriptDelJugador; // Arrastra a tu jugador aquí para congelarlo
-    // (Nota: Si tu script de moverse se llama distinto, cambia la palabra 'Movement')
+    public Movement scriptDelJugador; 
+    public ControladorDialogo controladorClasico; // ¡NUEVO! Para acceder al reloj
 
     void Start()
     {
-        // Al darle al Play, nos aseguramos de que el panel se vea y congelamos al jugador
-        if (panelIntro != null) 
-        {
-            panelIntro.SetActive(true);
-        }
+        if (panelIntro != null) panelIntro.SetActive(true);
+        if (scriptDelJugador != null) scriptDelJugador.puedeMoverse = false;
         
-        if (scriptDelJugador != null) 
+        // ¡PARAMOS EL RELOJ EN LA INTRO!
+        if (controladorClasico != null && controladorClasico.relojDelJuego != null)
         {
-            scriptDelJugador.puedeMoverse = false;
+            controladorClasico.relojDelJuego.elTiempoPasa = false;
         }
     }
 
     void Update()
     {
-        // Si el panel está encendido, estamos en la Intro y esperamos que el jugador pulse algo
         if (panelIntro != null && panelIntro.activeSelf)
         {
-            // Detectamos el Enter para pasar la intro
-            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetMouseButtonDown(0))
             {
                 ComenzarAventura();
             }
@@ -38,13 +34,13 @@ public class PantallaIntro : MonoBehaviour
 
     void ComenzarAventura()
     {
-        // ¡Se acabó la intro! Apagamos la pantalla
         panelIntro.SetActive(false);
-        
-        // Descongelamos al jugador para que empiece a caminar hacia el trigger de Pam
-        if (scriptDelJugador != null)
+        if (scriptDelJugador != null) scriptDelJugador.puedeMoverse = true;
+
+        // ¡REANUDAMOS EL RELOJ AL EMPEZAR A JUGAR!
+        if (controladorClasico != null && controladorClasico.relojDelJuego != null)
         {
-            scriptDelJugador.puedeMoverse = true;
+            controladorClasico.relojDelJuego.elTiempoPasa = true;
         }
     }
 }

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aed0cbf9d3d3e894497ae68cadb2dd0c, type: 3}
+  m_Name: Michael03UltimaOportunidad
+  m_EditorClassIdentifier: Assembly-CSharp::NodoDialogo
+  nombreNPC: Michael
+  colorNombre: {r: 0.1176471, g: 0.5647059, b: 1, a: 1}
+  textoDelNPC: "(Abre mucho los ojos) \xBFAh, s\xED? \xBFQu\xE9 esc\xE1ndalo? \xA1Cu\xE9ntame,
+    cu\xE9ntame absolutamente todo con detalles!"
+  respuestas:
+  - textoBoton: "Resulta que el alcalde de la ciudad ten\xEDa un l\xEDo a escondidas
+      con la panadera..."
+    siguienteNodo: {fileID: 11400000, guid: 83fbf96b99838694cbdb644762f0b8a4, type: 2}
+    cambioAmistad: 0
+  - textoBoton: "Era mentira, solo quer\xEDa llamar tu atenci\xF3n para que me des
+      el c\xF3digo."
+    siguienteNodo: {fileID: 11400000, guid: 91c1eb3788ef4bc4594d5769ff092542, type: 2}
+    cambioAmistad: 0
+  - textoBoton: 'Resulta que me tuve que ir porque no fui capaz de terminar la carrera... '
+    siguienteNodo: {fileID: 11400000, guid: 6c495efee42e4f646abce1593062112c, type: 2}
+    cambioAmistad: 0

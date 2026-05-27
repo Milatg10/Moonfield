@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aed0cbf9d3d3e894497ae68cadb2dd0c, type: 3}
+  m_Name: Michael01Inicio
+  m_EditorClassIdentifier: Assembly-CSharp::NodoDialogo
+  nombreNPC: Michael
+  colorNombre: {r: 0.1176471, g: 0.5647059, b: 1, a: 1}
+  textoDelNPC: "\xBFQu\xE9 quieres? No me f\xEDo mucho de los que ven\xEDs rebotados
+    de la ciudad... a menos que traigas alguna exclusiva interesante. Aqu\xED en
+    el pueblo nunca pasa nada."
+  respuestas:
+  - textoBoton: "Necesito el c\xF3digo del cofre, por favor."
+    siguienteNodo: {fileID: 11400000, guid: 2c35c555ca199d94e97e18e37b1a91ea, type: 2}
+    cambioAmistad: 0
+  - textoBoton: "Hola Michael, \xBFqu\xE9 tal el d\xEDa?"
+    siguienteNodo: {fileID: 11400000, guid: d29c03ce7bdc8654983b3228271bb102, type: 2}
+    cambioAmistad: 0
+  - textoBoton: "No te vas a creer el esc\xE1ndalo que ha habido en mi ciudad..."
+    siguienteNodo: {fileID: 11400000, guid: 62ed055bc6d4ab64c821e9e220c9b8fc, type: 2}
+    cambioAmistad: 0

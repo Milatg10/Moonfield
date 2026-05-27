@@ -1,57 +1,63 @@
 using UnityEngine;
-using TMPro; // Para poder usar los textos modernos
-using UnityEngine.UI; // Para poder usar botones
+using TMPro; 
+using UnityEngine.UI; 
 using UnityEngine.EventSystems;
-using System; // Nos permite usar "Actions" (Recados)
+using System; 
 
 public class ControladorDialogo : MonoBehaviour
 {
     [Header("Elementos Visuales (Arrastrar desde el Canvas)")]
-    public GameObject cajaDialogo; // El Panel oscuro
+    public GameObject cajaDialogo; 
     public TextMeshProUGUI textoNombre;
     public TextMeshProUGUI textoMensaje;
-    public GameObject[] botones; // Arrastrar los 3 objetos Botón aquí
-    public TextMeshProUGUI[] textosBotones; // Arrastrar los textos de dentro de los botones
+    public GameObject[] botones; 
+    public TextMeshProUGUI[] textosBotones; 
 
     [Header("Datos Internos")]
     public int amistadPam = 0;
     private NodoDialogo nodoActual;
+    
+    // ¡NUEVO! La bandera que le dirá al tronco que ya puede romperse
+    public bool tieneHacha = false; 
 
     [Header("Nodos Finales (Evaluación)")]
-    public NodoDialogo nodoFinalBueno; // Aquí arrastraremos Pam_03A_Hacha
-    public NodoDialogo nodoFinalMalo;  // Aquí arrastraremos Pam_03B_Nada
+    public NodoDialogo nodoFinalBueno; 
+    public NodoDialogo nodoFinalMalo;  
 
-    [HideInInspector] // Lo ocultamos para que no ensucie Unity
+    [HideInInspector] 
     public Action eventoAlCerrar;
 
     [Header("Referencias")]
-    // ¡OJO! Cambia "MovimientoJugador" por el nombre real de tu script de mover al personaje
     public Movement scriptDelJugador;
-
-    public SistemaInventario inventario; // Inventario
-    public ObjetoInventario hachaParaEntregar; // El objeto que le daremos al jugador si la amistad es buena
+    public SistemaInventario inventario; 
+    public ObjetoInventario hachaParaEntregar; 
 
     [Header("Referencias UI Extras")]
-    public GameObject interfazInventario; // Aquí arrastraremos la barra completa con su fondo
+    public GameObject interfazInventario; 
 
     [Header("Conexión con el Reloj")]
-    public RelojJuego relojDelJuego; // Para poder pausarlo
+    public RelojJuego relojDelJuego; 
 
-    // Esta función la llamaremos cuando el jugador se acerque a Pam
+    [Header("=== CASTIGO DEL HACHA ===")]
+    public GameObject hachaFisicaEnMapa; 
+
+     void Start()
+    {
+        cajaDialogo.SetActive(false); 
+    }
+
     public void IniciarDialogo(NodoDialogo primerNodo)
     {
-        if (scriptDelJugador != null) scriptDelJugador.puedeMoverse = false; // Bloqueamos el movimiento del jugador al iniciar el diálogo
+        if (scriptDelJugador != null) scriptDelJugador.puedeMoverse = false; 
+        if (interfazInventario != null) interfazInventario.SetActive(false); 
 
-        if (interfazInventario != null) interfazInventario.SetActive(false); // Esconde la barra de inventario durante el diálogo
-
-        // Pausamos el tiempo mientras hablamos
         if (relojDelJuego != null)
         {
             relojDelJuego.elTiempoPasa = false;
         }
 
-        amistadPam = 0; // Empezamos de cero
-        cajaDialogo.SetActive(true); // Encendemos la UI
+        amistadPam = 0; 
+        cajaDialogo.SetActive(true); 
         MostrarNodo(primerNodo);
     }
 
@@ -62,31 +68,26 @@ public class ControladorDialogo : MonoBehaviour
         textoNombre.color = nodo.colorNombre;
         textoMensaje.text = nodo.textoDelNPC;
 
-        // Primero, apagamos todos los botones por si acaso
         for (int i = 0; i < botones.Length; i++)
         {
             botones[i].SetActive(false);
         }
 
-        // Si es un NODO FINAL (como el 03A o 03B, que tienen 0 respuestas)
         if (nodo.respuestas.Length == 0)
         {
-            botones[0].SetActive(true); // Encendemos solo el primer botón
-            textosBotones[0].text = "Cerrar"; // Le cambiamos el texto
+            botones[0].SetActive(true); 
+            textosBotones[0].text = "Cerrar"; 
             
-            // Le decimos al botón que al pulsarlo, cierre la caja
             botones[0].GetComponent<Button>().onClick.RemoveAllListeners();
             botones[0].GetComponent<Button>().onClick.AddListener(CerrarDialogo);
-            return; // Terminamos aquí
+            return; 
         }
 
-        // Si es un NODO NORMAL, encendemos los botones que hagan falta
         for (int i = 0; i < nodo.respuestas.Length; i++)
         {
             botones[i].SetActive(true);
             textosBotones[i].text = nodo.respuestas[i].textoBoton;
             
-            // Este bloque de código le dice al botón qué hacer al ser pulsado
             int indice = i; 
             botones[i].GetComponent<Button>().onClick.RemoveAllListeners();
             botones[i].GetComponent<Button>().onClick.AddListener(() => BotonPulsado(indice));
@@ -95,18 +96,16 @@ public class ControladorDialogo : MonoBehaviour
 
     public void BotonPulsado(int indiceElegido)
     {
-        EventSystem.current.SetSelectedGameObject(null); // Esto es para que el botón no se quede "seleccionado" después de pulsarlo
+        EventSystem.current.SetSelectedGameObject(null); 
         Respuesta respuestaElegida = nodoActual.respuestas[indiceElegido];
         
-        // 1. Sumamos (o restamos) la amistad en secreto
         amistadPam += respuestaElegida.cambioAmistad;
 
-        // 2. ¿A dónde vamos ahora?
-        if (respuestaElegida.siguienteNodo != null) // Si hay un nodo conectado...
+        if (respuestaElegida.siguienteNodo != null) 
         {
             MostrarNodo(respuestaElegida.siguienteNodo);
         }
-        else // ¡SI ESTÁ EN NONE, ES HORA DE EVALUAR!
+        else 
         {
             EvaluarFinal();
         }
@@ -116,43 +115,65 @@ public class ControladorDialogo : MonoBehaviour
     {
         if (amistadPam >= 1)
         {
-            MostrarNodo(nodoFinalBueno); // ¡Enseña la tarjeta de darle el hacha!
+            MostrarNodo(nodoFinalBueno); 
         }
         else
         {
-            MostrarNodo(nodoFinalMalo); // ¡Enseña la tarjeta de mandarle a pastar!
+            MostrarNodo(nodoFinalMalo); 
+        }
+    }
+
+    public void ActivarHachaEnMapa()
+    {
+        if (hachaFisicaEnMapa != null)
+        {
+            hachaFisicaEnMapa.SetActive(true); 
+            Debug.Log("Pam se ha enfadado. El hacha física ha aparecido en el mapa.");
         }
     }
 
     public void CerrarDialogo()
     {
-        cajaDialogo.SetActive(false); // Apaga la UI
+        cajaDialogo.SetActive(false); 
 
-        // Reanudamos el tiempo SIEMPRE que se cierre la caja, sin importar lo que pase después
         if (relojDelJuego != null)
         {
             relojDelJuego.elTiempoPasa = true;
         }
         
-        // Damos el hacha en secreto 
-        if (amistadPam >= 1) {
-            if (inventario != null && hachaParaEntregar != null) {
-                inventario.AñadirObjeto(hachaParaEntregar);
-            }
-        }
-
-        // ¿Alguien nos dejó un recado para hacer una película (como la puerta)?
-        if (eventoAlCerrar != null)
+        // ¡NUEVO! Usamos la función para que quede súper limpio
+        if (amistadPam >= 1) 
         {
-            eventoAlCerrar.Invoke(); // Ejecutamos la película 
-            eventoAlCerrar = null;   // Borramos el recado
+            EntregarHachaAlJugador(); 
         }
         else 
         {
-            // ¡NO hay película! Devolvemos el control inmediatamente al jugador
+            ActivarHachaEnMapa();
+        }
+
+        if (eventoAlCerrar != null)
+        {
+            eventoAlCerrar.Invoke(); 
+            eventoAlCerrar = null;   
+        }
+        else 
+        {
             if (interfazInventario != null) interfazInventario.SetActive(true);
             if (scriptDelJugador != null) scriptDelJugador.puedeMoverse = true;
         }
     }
 
+    // ==========================================
+    // LLAMARÁ LA IA (O EL MODO CLÁSICO)
+    // ==========================================
+    public void EntregarHachaAlJugador()
+    {
+        if (inventario != null && hachaParaEntregar != null) 
+        {
+            inventario.AñadirObjeto(hachaParaEntregar);
+            Debug.Log("Hacha añadida al inventario.");
+        }
+
+        tieneHacha = true; // El tronco ya puede leer esto y dejarte pasar
+    }
 }
