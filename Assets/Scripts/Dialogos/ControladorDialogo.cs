@@ -40,6 +40,7 @@ public class ControladorDialogo : MonoBehaviour
 
     [Header("=== CASTIGO DEL HACHA ===")]
     public GameObject hachaFisicaEnMapa; 
+    public bool conoceSecreto = false; 
 
      void Start()
     {
@@ -136,30 +137,16 @@ public class ControladorDialogo : MonoBehaviour
     {
         cajaDialogo.SetActive(false); 
 
-        if (relojDelJuego != null)
-        {
-            relojDelJuego.elTiempoPasa = true;
-        }
+        // 1. SIEMPRE DEVOLVEMOS EL CONTROL AL JUGADOR
+        if (relojDelJuego != null) relojDelJuego.elTiempoPasa = true;
+        if (interfazInventario != null) interfazInventario.SetActive(true);
+        if (scriptDelJugador != null) scriptDelJugador.puedeMoverse = true;
         
-        // ¡NUEVO! Usamos la función para que quede súper limpio
-        if (amistadPam >= 1) 
-        {
-            EntregarHachaAlJugador(); 
-        }
-        else 
-        {
-            ActivarHachaEnMapa();
-        }
-
+        // 2. DESPUÉS, DISPARAMOS EL EVENTO ESPECÍFICO DEL NPC
         if (eventoAlCerrar != null)
         {
             eventoAlCerrar.Invoke(); 
             eventoAlCerrar = null;   
-        }
-        else 
-        {
-            if (interfazInventario != null) interfazInventario.SetActive(true);
-            if (scriptDelJugador != null) scriptDelJugador.puedeMoverse = true;
         }
     }
 
@@ -175,5 +162,11 @@ public class ControladorDialogo : MonoBehaviour
         }
 
         tieneHacha = true; // El tronco ya puede leer esto y dejarte pasar
+    }
+    
+    public void AprenderSecreto()
+    {
+        conoceSecreto = true;
+        Debug.Log("¡El jugador ha aprendido la contraseña de Michael!");
     }
 }

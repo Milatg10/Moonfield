@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro; 
 using UnityEngine.UI;
 using System; 
-using UnityEngine.Events; // ¡NUEVO! Necesario para eventos universales en el Inspector
+using UnityEngine.Events; 
 
 public class NPCController : MonoBehaviour
 {
@@ -28,12 +28,11 @@ public class NPCController : MonoBehaviour
 
     [Header("--- CONFIGURACIÓN UNIVERSAL DEL NPC ---")]
     public string nombreNPC = "Pam";
-    public string etiquetaExito ; // Lo que escribe la IA si ganas
-    public string etiquetaFracaso; // Lo que escribe la IA si pierdes
+    public string etiquetaExito ; 
+    public string etiquetaFracaso; 
     [TextArea(2, 4)] public string textoNarradorFracaso = "Pam se ha marchado furiosa y se niega a ayudarte..."; 
 
     [Header("--- EVENTOS DE CONSECUENCIAS ---")]
-    // Aquí conectaremos en Unity qué pasa si ganas (ej. dar hacha) o pierdes (ej. tirar hacha al mapa)
     public UnityEvent eventoAlTenerExito; 
     public UnityEvent eventoAlFracasar;   
 
@@ -95,22 +94,32 @@ public class NPCController : MonoBehaviour
             // =========================================================
             // 🛑 ZONA MOCK - SALUDO INICIAL
             // =========================================================
-            /* --- VERSIÓN FINAL PARA EL TFG (Descomentar esto) ---
-            string peticionSaludo = "Saluda al jugador por primera vez de forma natural según tu personalidad y contexto.";
-            StartCoroutine(cerebroIA.CallAI(npcLore, peticionSaludo, MostrarSaludoInicial));
-            */
-
-            // --- VERSIÓN DE PRUEBA (Borrar esto en el futuro) ---
             MostrarSaludoInicial("Hola. ¿Tienes algo interesante que contarme o solo vienes a molestar?");
             // =========================================================
         }
-        else
+        else // MODO CLÁSICO
         {
             if(contenedorInterfazIA != null) contenedorInterfazIA.SetActive(false);
             if(zonaBotones != null) zonaBotones.SetActive(true);
             
             if (controladorClasico != null && primerNodo != null)
+            {
+                // ¡AQUÍ ESTÁ LA MAGIA!
+                // Le dictamos al ControladorClasico qué debe hacer exactamente al cerrar
+                controladorClasico.eventoAlCerrar = () => 
+                {
+                    if (controladorClasico.amistadPam >= 1)
+                    {
+                        if (eventoAlTenerExito != null) eventoAlTenerExito.Invoke();
+                    }
+                    else
+                    {
+                        if (eventoAlFracasar != null) eventoAlFracasar.Invoke();
+                    }
+                };
+
                 controladorClasico.IniciarDialogo(primerNodo);
+            }
         }
     }
 
@@ -145,11 +154,6 @@ public class NPCController : MonoBehaviour
         // =========================================================
         // 🛑 ZONA MOCK - RESPUESTA AL JUGADOR
         // =========================================================
-        /* --- VERSIÓN FINAL PARA EL TFG (Descomentar esto) ---
-        StartCoroutine(cerebroIA.CallAI(npcLore, mensajeJugador, MostrarRespuesta));
-        */
-
-        // --- VERSIÓN DE PRUEBA (Borrar esto en el futuro) ---
         string textoPrueba = mensajeJugador.ToLower();
         string respuestaFalsa = "";
 
@@ -173,11 +177,10 @@ public class NPCController : MonoBehaviour
     void MostrarRespuesta(string respuesta)
     {
         // CASO ÉXITO (Dinámico)
-        if (respuesta.Contains(etiquetaExito))
+        if (!string.IsNullOrEmpty(etiquetaExito) && respuesta.Contains(etiquetaExito))
         {
             respuesta = respuesta.Replace(etiquetaExito, "").Trim();
             
-            // Disparamos el evento genérico de éxito
             if (eventoAlTenerExito != null) eventoAlTenerExito.Invoke();
             
             textoPantalla.text = respuesta + "\n\n<size=75%><color=green>[Pulsa Enter para terminar]</color></size>";
@@ -187,7 +190,7 @@ public class NPCController : MonoBehaviour
         }
 
         // CASO FRACASO POR ETIQUETA (Dinámico)
-        if (respuesta.Contains(etiquetaFracaso))
+        if (!string.IsNullOrEmpty(etiquetaFracaso) && respuesta.Contains(etiquetaFracaso))
         {
             respuesta = respuesta.Replace(etiquetaFracaso, "").Trim();
             intentosActuales = 0; 
@@ -223,10 +226,8 @@ public class NPCController : MonoBehaviour
             if (contenedorInterfazIA != null) contenedorInterfazIA.SetActive(false);
             textoNombre.text = "Narrador";
             
-            // Usamos el texto de narrador que hayamos configurado en el Inspector
             textoPantalla.text = "<color=red>" + textoNarradorFracaso + "</color>\n\n<size=75%>[Pulsa Enter para salir]</size>";
             
-            // Disparamos el evento genérico de fracaso
             if (eventoAlFracasar != null) eventoAlFracasar.Invoke();
             
             faseMensajeMapa = false; 
