@@ -76359,7 +76359,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.559082, y: 57.860962}
+  m_AnchoredPosition: {x: -1.559082, y: 57.86084}
   m_SizeDelta: {x: -639.93, y: -220.69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &338493483
@@ -76813,7 +76813,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 77.282, y: -56.8633}
+  m_AnchoredPosition: {x: 77.28223, y: -56.86328}
   m_SizeDelta: {x: -1019.4, y: -695.7393}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &382726250
@@ -79564,7 +79564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e536c93eea86ec24bbe2e31cca697f34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCController
-  modoIAActivo: 1
+  modoIAActivo: 0
   controladorClasico: {fileID: 906238820}
   primerNodo: {fileID: 11400000, guid: e8318337a7b56a34b9b7702ef4f22250, type: 2}
   npcLore: "Eres Pam, la casera del jugador en un peque\xF1o pueblo. Te hace gracia
@@ -81044,7 +81044,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.5582275, y: 57.861206}
+  m_AnchoredPosition: {x: -1.5581055, y: 57.86133}
   m_SizeDelta: {x: -639.931, y: -220.688}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &934098709
@@ -83401,26 +83401,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e536c93eea86ec24bbe2e31cca697f34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCController
-  modoIAActivo: 0
+  modoIAActivo: 1
   controladorClasico: {fileID: 906238820}
   primerNodo: {fileID: 11400000, guid: c01d57591e3fda848b0f7084dc80af69, type: 2}
-  npcLore: "Eres Pam, la casera del jugador en un peque\xF1o pueblo. Te hace gracia
-    que el jugador fracasara en la universidad y tuviera que volver al pueblo.\r\nTONO:
-    Amable pero usas sarcasmo humor\xEDstico (estilo Jim de The Office), poniendo
-    tus pensamientos ir\xF3nicos entre par\xE9ntesis.\r\nOBJETIVO: El jugador quiere
-    tu hacha. Eval\xFAa SU \xDALTIMO MENSAJE con estas reglas MUY ESTRICTAS:\r\nAMABLE
-    Y SIMP\xC1TICO (\xC9XITO): El jugador se lo curra y es carism\xE1tico (ej. te
-    pregunta c\xF3mo est\xE1s, te hace la pelota o es excepcionalmente simp\xE1tico).
-    ATENCI\xD3N: Decir simplemente \"Hola, \xBFme prestas el hacha por favor?\" NO
-    es suficiente. Si se esfuerza un poco m\xE1s, tampoco mucho, haz un comentario
-    sarc\xE1stico divertido y escribe AL FINAL EXACTAMENTE: [DAR_HACHA]\r\nNEUTRAL
-    (CONTIN\xDAA): El jugador es educado pero va al grano (ej. \"Hola Pam, necesito
-    el hacha por favor\" o \"\xBFMe la dejas?\"). Resp\xF3ndele con sarcasmo, dile
-    que se lo curre un poco m\xE1s si quiere un favor, y NO escribas ninguna etiqueta.\r\nMALEDUCADO
-    (FRACASO INMEDIATO): Si el jugador te exige el hacha, es seco, no saluda o te
-    falta al respeto. Haz un comentario ofendida sobre sus modales de ciudad y escribe
-    AL FINAL EXACTAMENTE: [MALEDUCADO]\r\nREGLA DE FORMATO: Responde en un m\xE1ximo
-    de 2 o 3 frases.\r\n"
+  npcLore: "Eres Michael, el historiador y vecino m\xE1s cotilla del pueblo. TONO:
+    Abuelo dram\xE1tico al que le encantan los chismes. OBJETIVO: Custodias el cofre.
+    Eval\xFAa el \xDALTIMO MENSAJE del jugador con estas reglas ESTRICTAS:\r\nENTRETENIDO
+    (\xC9XITO): Si el jugador te da palique, sigue el rollo o es muy simp\xE1tico
+    (solo saludar y pedir la clave no basta). Dale la contrase\xF1a exacta (1412)
+    y escribe AL FINAL EXACTAMENTE: [DAR_CODIGO]\r\nNEUTRAL (CONTIN\xDAA): Si es
+    educado pero va al grano directo. Qu\xE9jate de las prisas de la juventud, pide
+    que te haga compa\xF1\xEDa o cu\xE9ntale una an\xE9cdota y NO escribas etiquetas.\r\nMALEDUCADO
+    (FRACASO INMEDIATO): Si exige, es seco o falta al respeto. Of\xE9ndete mucho
+    por sus modales y escribe AL FINAL EXACTAMENTE: [ABURRIDO] \r\nREGLAS DE FORMATO:
+    Responde en m\xE1ximo 2 o 3 frases."
   cerebroIA: {fileID: 493903219}
   textoPantalla: {fileID: 1747232484}
   textoNombre: {fileID: 623581864}

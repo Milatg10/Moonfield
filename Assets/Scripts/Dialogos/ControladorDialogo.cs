@@ -16,8 +16,6 @@ public class ControladorDialogo : MonoBehaviour
     [Header("Datos Internos")]
     public int amistadPam = 0;
     private NodoDialogo nodoActual;
-    
-    // ¡NUEVO! La bandera que le dirá al tronco que ya puede romperse
     public bool tieneHacha = false; 
 
     [Header("Nodos Finales (Evaluación)")]
@@ -51,11 +49,7 @@ public class ControladorDialogo : MonoBehaviour
     {
         if (scriptDelJugador != null) scriptDelJugador.puedeMoverse = false; 
         if (interfazInventario != null) interfazInventario.SetActive(false); 
-
-        if (relojDelJuego != null)
-        {
-            relojDelJuego.elTiempoPasa = false;
-        }
+        if (relojDelJuego != null) relojDelJuego.elTiempoPasa = false;
 
         amistadPam = 0; 
         cajaDialogo.SetActive(true); 
@@ -69,10 +63,7 @@ public class ControladorDialogo : MonoBehaviour
         textoNombre.color = nodo.colorNombre;
         textoMensaje.text = nodo.textoDelNPC;
 
-        for (int i = 0; i < botones.Length; i++)
-        {
-            botones[i].SetActive(false);
-        }
+        for (int i = 0; i < botones.Length; i++) { botones[i].SetActive(false); }
 
         if (nodo.respuestas.Length == 0)
         {
@@ -114,45 +105,47 @@ public class ControladorDialogo : MonoBehaviour
 
     public void EvaluarFinal()
     {
-        if (amistadPam >= 1)
+        if (amistadPam >= 1) { MostrarNodo(nodoFinalBueno); }
+        else { MostrarNodo(nodoFinalMalo); }
+    }
+
+    public void CerrarDialogo()
+    {
+        Debug.Log("🔴 1. [CONTROLADOR] Cerrando diálogo. ¿Hay evento esperando en el buzón? " + (eventoAlCerrar != null));
+        
+        cajaDialogo.SetActive(false); 
+
+        if (relojDelJuego != null) relojDelJuego.elTiempoPasa = true;
+        if (interfazInventario != null) interfazInventario.SetActive(true);
+        if (scriptDelJugador != null) scriptDelJugador.puedeMoverse = true;
+        
+        if (eventoAlCerrar != null)
         {
-            MostrarNodo(nodoFinalBueno); 
+            Debug.Log("🔴 2. [CONTROLADOR] Ejecutando el evento guardado...");
+            eventoAlCerrar.Invoke(); 
+            eventoAlCerrar = null;   
         }
         else
         {
-            MostrarNodo(nodoFinalMalo); 
+            Debug.LogWarning("🔴 [ATENCIÓN] El eventoAlCerrar estaba vacío. El NPC no mandó instrucciones.");
         }
     }
 
     public void ActivarHachaEnMapa()
     {
+        Debug.Log("🪓 3. [HACHA] ¡Se acaba de llamar a ActivarHachaEnMapa!");
+        
         if (hachaFisicaEnMapa != null)
         {
             hachaFisicaEnMapa.SetActive(true); 
-            Debug.Log("Pam se ha enfadado. El hacha física ha aparecido en el mapa.");
+            Debug.Log("🪓 4. [HACHA] ¡Hacha física encendida con éxito!");
         }
-    }
-
-    public void CerrarDialogo()
-    {
-        cajaDialogo.SetActive(false); 
-
-        // 1. SIEMPRE DEVOLVEMOS EL CONTROL AL JUGADOR
-        if (relojDelJuego != null) relojDelJuego.elTiempoPasa = true;
-        if (interfazInventario != null) interfazInventario.SetActive(true);
-        if (scriptDelJugador != null) scriptDelJugador.puedeMoverse = true;
-        
-        // 2. DESPUÉS, DISPARAMOS EL EVENTO ESPECÍFICO DEL NPC
-        if (eventoAlCerrar != null)
+        else
         {
-            eventoAlCerrar.Invoke(); 
-            eventoAlCerrar = null;   
+            Debug.LogError("🪓 [ERROR DE HACHA] La función se ejecutó, pero el hueco 'Hacha Fisica En Mapa' del Inspector está VACÍO.");
         }
     }
 
-    // ==========================================
-    // LLAMARÁ LA IA (O EL MODO CLÁSICO)
-    // ==========================================
     public void EntregarHachaAlJugador()
     {
         if (inventario != null && hachaParaEntregar != null) 
@@ -160,8 +153,7 @@ public class ControladorDialogo : MonoBehaviour
             inventario.AñadirObjeto(hachaParaEntregar);
             Debug.Log("Hacha añadida al inventario.");
         }
-
-        tieneHacha = true; // El tronco ya puede leer esto y dejarte pasar
+        tieneHacha = true; 
     }
     
     public void AprenderSecreto()

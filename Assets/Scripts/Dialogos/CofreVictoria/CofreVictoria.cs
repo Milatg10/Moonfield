@@ -21,33 +21,20 @@ public class CofreVictoria : MonoBehaviour
     public string passwordCorrecta = "1412"; 
     
     [Header("Mensaje de Error")]
-    public GameObject panelError; // ¡NUEVO! Ahora gestionamos el panel entero
+    public GameObject panelError; 
 
     [Header("Diálogo de Pista (Acertijo)")]
     public NodoDialogo nodoPista; 
-
-    private bool jugadorCerca = false;
 
     void Start()
     {
         if (panelVictoria != null) panelVictoria.SetActive(false);
         if (panelPassword != null) panelPassword.SetActive(false);
-        if (panelError != null) panelError.SetActive(false); // Que el error empiece apagado
+        if (panelError != null) panelError.SetActive(false); 
 
         if (spriteRendererDelCofre != null && cofreCerrado != null)
         {
             spriteRendererDelCofre.sprite = cofreCerrado;
-        }
-    }
-
-    void Update()
-    {
-        if (jugadorCerca && Input.GetKeyDown(KeyCode.E) && !panelVictoria.activeSelf && !panelPassword.activeSelf)
-        {
-            if (controlador != null && !controlador.cajaDialogo.activeSelf)
-            {
-                AbrirPanelPassword();
-            }
         }
     }
 
@@ -59,19 +46,17 @@ public class CofreVictoria : MonoBehaviour
             if (scriptDelJugador != null) scriptDelJugador.puedeMoverse = false;
             
             campoPassword.text = ""; 
-            if (panelError != null) panelError.SetActive(false); // Lo apagamos al volver a abrir
+            if (panelError != null) panelError.SetActive(false); 
             campoPassword.ActivateInputField(); 
         }
     }
 
     public void ComprobarPassword()
     {
-        // Cancelamos cualquier apagado pendiente
         CancelInvoke("BorrarError"); 
 
         if (campoPassword.text.Trim().ToUpper() == passwordCorrecta.Trim().ToUpper())
         {
-            // ¡ACERTÓ!
             CerrarPanelPassword(); 
             if (spriteRendererDelCofre != null && cofreAbierto != null) spriteRendererDelCofre.sprite = cofreAbierto;
             if (panelVictoria != null) panelVictoria.SetActive(true);
@@ -79,19 +64,16 @@ public class CofreVictoria : MonoBehaviour
         }
         else
         {
-            // ¡FALLÓ!
             if (controlador != null && controlador.conoceSecreto == true)
             {
-                // Ya habló con Michael -> Pista del acertijo
                 CerrarPanelPassword();
                 if (nodoPista != null) controlador.IniciarDialogo(nodoPista);
             }
             else
             {
-                // No ha hablado con Michael -> Mostramos el panel de error 2 segundos
                 if (panelError != null)
                 {
-                    panelError.SetActive(true); // Encendemos el panel negro con su texto
+                    panelError.SetActive(true); 
                     Invoke("BorrarError", 2f); 
                 }
                 campoPassword.text = ""; 
@@ -100,7 +82,6 @@ public class CofreVictoria : MonoBehaviour
         }
     }
 
-    // Función que apaga el panel
     void BorrarError()
     {
         if (panelError != null) panelError.SetActive(false);
@@ -112,16 +93,25 @@ public class CofreVictoria : MonoBehaviour
         if (scriptDelJugador != null) scriptDelJugador.puedeMoverse = true;
     }
 
+    // ¡AQUÍ ESTÁ EL CAMBIO! Salta al entrar en la zona
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) jugadorCerca = true;
+        if (other.CompareTag("Player")) 
+        {
+            if (!panelVictoria.activeSelf && !panelPassword.activeSelf)
+            {
+                if (controlador == null || !controlador.cajaDialogo.activeSelf)
+                {
+                    AbrirPanelPassword();
+                }
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player")) 
         {
-            jugadorCerca = false;
             CerrarPanelPassword(); 
         }
     }

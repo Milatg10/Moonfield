@@ -16,5 +16,5 @@ MonoBehaviour:
   colorNombre: {r: 0.5450981, g: 0.2705882, b: 0.07450981, a: 1}
   textoDelNPC: "Si no te sabes la contrase\xF1a, tendr\xE1s que reiniciar el juego
     de nuevo. Es broma, para averiguar la contrase\xF1a hay que restar el a\xF1o
-    que Cristobal Col\xF3n lleg\xF3 a Am\xE9rica menos 80."
+    en el que Cristobal Col\xF3n lleg\xF3 a Am\xE9rica menos 80."
   respuestas: []

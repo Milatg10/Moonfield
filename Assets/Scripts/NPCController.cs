@@ -28,7 +28,7 @@ public class NPCController : MonoBehaviour
 
     [Header("--- CONFIGURACIÓN UNIVERSAL DEL NPC ---")]
     public string nombreNPC = "Pam";
-    public string etiquetaExito ; 
+    public string etiquetaExito; 
     public string etiquetaFracaso; 
     [TextArea(2, 4)] public string textoNarradorFracaso = "Pam se ha marchado furiosa y se niega a ayudarte..."; 
 
@@ -41,7 +41,6 @@ public class NPCController : MonoBehaviour
 
     private int intentosMaximos = 3;
     private int intentosActuales;
-    private bool jugadorCerca = false;
 
     private bool esperandoEnter = false;
     private bool faseMensajeMapa = false;
@@ -54,11 +53,6 @@ public class NPCController : MonoBehaviour
 
     void Update()
     {
-        if (jugadorCerca && Input.GetKeyDown(KeyCode.E) && !panelDialogo.activeSelf)
-        {
-            Hablar();
-        }
-
         if (esperandoEnter && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)))
         {
             ManejarPulsacionEnter();
@@ -91,29 +85,27 @@ public class NPCController : MonoBehaviour
             cajetinEntrada.interactable = false; 
             textoPantalla.text = nombreNPC + " está mirándote...";
 
-            // =========================================================
-            // 🛑 ZONA MOCK - SALUDO INICIAL
-            // =========================================================
-            MostrarSaludoInicial("Hola. ¿Tienes algo interesante que contarme o solo vienes a molestar?");
-            // =========================================================
+            string peticionSaludo = "Saluda al jugador de forma natural según tu personalidad. No le des pistas de buenas a primeras.";
+            StartCoroutine(cerebroIA.CallAI(npcLore, peticionSaludo, MostrarSaludoInicial));
         }
-        else // MODO CLÁSICO
+        else 
         {
             if(contenedorInterfazIA != null) contenedorInterfazIA.SetActive(false);
             if(zonaBotones != null) zonaBotones.SetActive(true);
             
             if (controladorClasico != null && primerNodo != null)
             {
-                // ¡AQUÍ ESTÁ LA MAGIA!
-                // Le dictamos al ControladorClasico qué debe hacer exactamente al cerrar
                 controladorClasico.eventoAlCerrar = () => 
                 {
+                    Debug.Log("🟢 2. [NPC] El Controlador me ha llamado. Evaluando amistad: " + controladorClasico.amistadPam);
                     if (controladorClasico.amistadPam >= 1)
                     {
+                        Debug.Log("🟢 3A. [NPC] ¡Éxito! Disparando evento de éxito...");
                         if (eventoAlTenerExito != null) eventoAlTenerExito.Invoke();
                     }
                     else
                     {
+                        Debug.Log("🟢 3B. [NPC] Fracaso. Disparando evento de fracaso...");
                         if (eventoAlFracasar != null) eventoAlFracasar.Invoke();
                     }
                 };
@@ -151,36 +143,14 @@ public class NPCController : MonoBehaviour
         cajetinEntrada.text = ""; 
         cajetinEntrada.interactable = false; 
 
-        // =========================================================
-        // 🛑 ZONA MOCK - RESPUESTA AL JUGADOR
-        // =========================================================
-        string textoPrueba = mensajeJugador.ToLower();
-        string respuestaFalsa = "";
-
-        if (textoPrueba.Contains("hacha") || textoPrueba.Contains("alcalde") || textoPrueba.Contains("secreto")) 
-        {
-            respuestaFalsa = "Lo has conseguido, aquí tienes. " + etiquetaExito;
-        } 
-        else if (textoPrueba.Contains("tonto") || textoPrueba.Contains("feo")) 
-        {
-            respuestaFalsa = "¡Qué falta de respeto! Lárgate. " + etiquetaFracaso;
-        } 
-        else 
-        {
-            respuestaFalsa = "Eso es muy aburrido. Cuéntame algo mejor.";
-        }
-        
-        MostrarRespuesta(respuestaFalsa);
-        // =========================================================
+        StartCoroutine(cerebroIA.CallAI(npcLore, mensajeJugador, MostrarRespuesta));
     }
 
     void MostrarRespuesta(string respuesta)
     {
-        // CASO ÉXITO (Dinámico)
         if (!string.IsNullOrEmpty(etiquetaExito) && respuesta.Contains(etiquetaExito))
         {
             respuesta = respuesta.Replace(etiquetaExito, "").Trim();
-            
             if (eventoAlTenerExito != null) eventoAlTenerExito.Invoke();
             
             textoPantalla.text = respuesta + "\n\n<size=75%><color=green>[Pulsa Enter para terminar]</color></size>";
@@ -189,7 +159,6 @@ public class NPCController : MonoBehaviour
             return;
         }
 
-        // CASO FRACASO POR ETIQUETA (Dinámico)
         if (!string.IsNullOrEmpty(etiquetaFracaso) && respuesta.Contains(etiquetaFracaso))
         {
             respuesta = respuesta.Replace(etiquetaFracaso, "").Trim();
@@ -202,7 +171,6 @@ public class NPCController : MonoBehaviour
             return;
         }
 
-        // CASO FRACASO POR INTENTOS
         if (intentosActuales <= 0)
         {
             textoPantalla.text = respuesta + "\n\n<size=75%><color=orange>[Pulsa Enter para continuar]</color></size>";
@@ -210,7 +178,7 @@ public class NPCController : MonoBehaviour
             esperandoEnter = true;
             faseMensajeMapa = true; 
         }
-        else // SIGUE LA CHARLA
+        else 
         {
             cajetinEntrada.interactable = true;
             textoPantalla.text = respuesta + "\n<size=75%><color=yellow>(Te quedan " + intentosActuales + " intentos)</color></size>";
@@ -225,11 +193,8 @@ public class NPCController : MonoBehaviour
         {
             if (contenedorInterfazIA != null) contenedorInterfazIA.SetActive(false);
             textoNombre.text = "Narrador";
-            
             textoPantalla.text = "<color=red>" + textoNarradorFracaso + "</color>\n\n<size=75%>[Pulsa Enter para salir]</size>";
-            
             if (eventoAlFracasar != null) eventoAlFracasar.Invoke();
-            
             faseMensajeMapa = false; 
         }
         else
@@ -263,6 +228,17 @@ public class NPCController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other) { if (other.CompareTag("Player")) jugadorCerca = true; }
-    private void OnTriggerExit2D(Collider2D other) { if (other.CompareTag("Player")) jugadorCerca = false; }
+    // ¡AQUÍ ESTÁ EL CAMBIO! Se dispara automáticamente al entrar en la zona
+    private void OnTriggerEnter2D(Collider2D other) 
+    { 
+        if (other.CompareTag("Player")) 
+        {
+            bool dialogoClasicoAbierto = (controladorClasico != null && controladorClasico.cajaDialogo.activeSelf);
+            
+            if (!panelDialogo.activeSelf && !dialogoClasicoAbierto)
+            {
+                Hablar();
+            }
+        } 
+    }
 }
