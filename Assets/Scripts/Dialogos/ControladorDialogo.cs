@@ -111,7 +111,9 @@ public class ControladorDialogo : MonoBehaviour
 
     public void CerrarDialogo()
     {
-        Debug.Log("🔴 1. [CONTROLADOR] Cerrando diálogo. ¿Hay evento esperando en el buzón? " + (eventoAlCerrar != null));
+        // ¡AQUÍ COMPROBAMOS QUIÉN ESTÁ INTENTANDO CERRAR!
+        Debug.Log($"🔴 1. [CONTROLADOR] Soy el Controlador llamado '{gameObject.name}' con el DNI: {gameObject.GetInstanceID()}. Cerrando diálogo...");
+        Debug.Log($"🔴 1B. [CONTROLADOR] ¿Hay evento esperando en MI buzón? " + (eventoAlCerrar != null));
         
         cajaDialogo.SetActive(false); 
 

@@ -79608,7 +79608,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: EntregarHachaAlJugador
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   eventoAlFracasar:
@@ -79623,7 +79623,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: ActivarHachaEnMapa
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &811092296
@@ -83401,20 +83401,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e536c93eea86ec24bbe2e31cca697f34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCController
-  modoIAActivo: 1
+  modoIAActivo: 0
   controladorClasico: {fileID: 906238820}
   primerNodo: {fileID: 11400000, guid: c01d57591e3fda848b0f7084dc80af69, type: 2}
-  npcLore: "Eres Michael, el historiador y vecino m\xE1s cotilla del pueblo. TONO:
-    Abuelo dram\xE1tico al que le encantan los chismes. OBJETIVO: Custodias el cofre.
-    Eval\xFAa el \xDALTIMO MENSAJE del jugador con estas reglas ESTRICTAS:\r\nENTRETENIDO
-    (\xC9XITO): Si el jugador te da palique, sigue el rollo o es muy simp\xE1tico
-    (solo saludar y pedir la clave no basta). Dale la contrase\xF1a exacta (1412)
-    y escribe AL FINAL EXACTAMENTE: [DAR_CODIGO]\r\nNEUTRAL (CONTIN\xDAA): Si es
-    educado pero va al grano directo. Qu\xE9jate de las prisas de la juventud, pide
-    que te haga compa\xF1\xEDa o cu\xE9ntale una an\xE9cdota y NO escribas etiquetas.\r\nMALEDUCADO
-    (FRACASO INMEDIATO): Si exige, es seco o falta al respeto. Of\xE9ndete mucho
-    por sus modales y escribe AL FINAL EXACTAMENTE: [ABURRIDO] \r\nREGLAS DE FORMATO:
-    Responde en m\xE1ximo 2 o 3 frases."
+  npcLore: "Eres Michael vecino m\xE1s cotilla del pueblo. TONO: Abuelo dram\xE1tico
+    al que le encantan los chismes pero que se hace el duro. OBJETIVO: Custodias
+    el cofre. Eval\xFAa el \xDALTIMO MENSAJE del jugador con estas reglas ESTRICTAS:\r\nHISTORIADOR
+    (\xC9XITO): El jugador NO puede pedirte la clave directamente. Solo le dar\xE1s
+    el c\xF3digo si te cuentan un cotilleo jugoso. Si hace esto, dale la contrase\xF1a
+    exacta (1412) y escribe AL FINAL EXACTAMENTE: [DAR_CODIGO]\r\nNEUTRAL (CONTIN\xDAA):
+    Si es educado, te saluda o te da conversaci\xF3n gen\xE9rica pero NO menciona
+    nada de cotilleos. Hazte de rogar. Dile que esas charlas modernas est\xE1n bien,
+    pero que a ti lo que te apasiona es hablar de cotilleos, y NO escribas etiquetas.\r\nDIRECTO
+    O MALEDUCADO (FRACASO INMEDIATO): Si exige la clave a la primera, va al grano
+    r\xE1pido o falta al respeto. Of\xE9ndete much\xEDsimo por sus prisas y escribe
+    AL FINAL EXACTAMENTE: [ABURRIDO] REGLAS: Responde en m\xE1ximo 3 frases. NUNCA
+    des la clave en el primer mensaje de la conversaci\xF3n."
   cerebroIA: {fileID: 493903219}
   textoPantalla: {fileID: 1747232484}
   textoNombre: {fileID: 623581864}

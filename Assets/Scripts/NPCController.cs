@@ -41,7 +41,6 @@ public class NPCController : MonoBehaviour
 
     private int intentosMaximos = 3;
     private int intentosActuales;
-
     private bool esperandoEnter = false;
     private bool faseMensajeMapa = false;
 
@@ -95,9 +94,12 @@ public class NPCController : MonoBehaviour
             
             if (controladorClasico != null && primerNodo != null)
             {
+                // ¡AQUÍ ESTÁ EL ESCÁNER DE DNI!
+                Debug.Log($"🟢 1. [NPC] Soy {gameObject.name}. Le estoy metiendo las reglas de éxito/fracaso al Controlador llamado '{controladorClasico.gameObject.name}' que tiene el DNI: {controladorClasico.gameObject.GetInstanceID()}");
+
                 controladorClasico.eventoAlCerrar = () => 
                 {
-                    Debug.Log("🟢 2. [NPC] El Controlador me ha llamado. Evaluando amistad: " + controladorClasico.amistadPam);
+                    Debug.Log("🟢 2. [NPC LAMBDA] ¡El Controlador me ha llamado de vuelta! Evaluando amistad: " + controladorClasico.amistadPam);
                     if (controladorClasico.amistadPam >= 1)
                     {
                         Debug.Log("🟢 3A. [NPC] ¡Éxito! Disparando evento de éxito...");
@@ -228,7 +230,6 @@ public class NPCController : MonoBehaviour
         }
     }
 
-    // ¡AQUÍ ESTÁ EL CAMBIO! Se dispara automáticamente al entrar en la zona
     private void OnTriggerEnter2D(Collider2D other) 
     { 
         if (other.CompareTag("Player")) 

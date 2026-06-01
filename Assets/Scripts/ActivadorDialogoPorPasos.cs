@@ -36,24 +36,27 @@ public class ActivadorDialogoPorPasos : MonoBehaviour
         {
             yaHaHablado = true;
 
-            if (cerebroDePam != null && cerebroDePam.modoIAActivo)
+            if (cerebroDePam != null)
             {
-                // ---- MODO IA ----
-                // Le dejamos el recado al nuevo Cerebro IA
-                cerebroDePam.eventoAlCerrarIA += IniciarDespedida;
+                // 1. OBLIGAMOS A PASAR POR EL CEREBRO
+                // Esto hace que el NPCController meta las reglas del hacha en el buzón.
                 cerebroDePam.Hablar(); 
-            }
-            else
-            {
-                // ---- MODO CLÁSICO ----
-                // Le dejamos el recado al Controlador Clásico antiguo
-                controlador.eventoAlCerrar += IniciarDespedida;
-                controlador.IniciarDialogo(dialogoDePam);
+
+                // 2. AÑADIMOS LA CINEMÁTICA AL FINAL DE LA COLA
+                if (cerebroDePam.modoIAActivo)
+                {
+                    cerebroDePam.eventoAlCerrarIA += IniciarDespedida;
+                }
+                else
+                {
+                    // Con el "+=" sumamos el fundido a negro a las instrucciones del hacha,
+                    // así hace las dos cosas sin pisarse.
+                    controlador.eventoAlCerrar += IniciarDespedida;
+                }
             }
         }
     }
 
-    // Esta función la haremos pública más adelante para que la IA también pueda lanzar la película
     public void IniciarDespedida()
     {
         StartCoroutine(RutinaFundidoANegro()); 
@@ -70,7 +73,7 @@ public class ActivadorDialogoPorPasos : MonoBehaviour
             yield return null; 
         }
 
-        cuerpoDePam.SetActive(false);
+        if (cuerpoDePam != null) cuerpoDePam.SetActive(false);
         yield return new WaitForSeconds(0.5f);
 
         while (c.a > 0f)
@@ -80,14 +83,7 @@ public class ActivadorDialogoPorPasos : MonoBehaviour
             yield return null;
         }
 
-        if (controlador.interfazInventario != null)
-        {
-            controlador.interfazInventario.SetActive(true);
-        }
-        
-        if (controlador.scriptDelJugador != null)
-        {
-            controlador.scriptDelJugador.puedeMoverse = true;
-        }
+        if (controlador.interfazInventario != null) controlador.interfazInventario.SetActive(true);
+        if (controlador.scriptDelJugador != null) controlador.scriptDelJugador.puedeMoverse = true;
     }
 }
