@@ -24,11 +24,11 @@ public class LLMService : MonoBehaviour
             string jsonContent = File.ReadAllText(path);
             SecretsData data = JsonUtility.FromJson<SecretsData>(jsonContent);
             apiKey = data.openai_api_key;
-            Debug.Log("✅ Clave cargada.");
+            Debug.Log($"[SISTEMA] Clave cargada.");
         }
         else
         {
-            Debug.LogError("❌ ERROR: No está el archivo secrets.json");
+            Debug.LogError("[SISTEMA] ERROR: No está el archivo secrets.json");
         }
     }
 
@@ -68,19 +68,17 @@ public class LLMService : MonoBehaviour
             // 3. RECIBIMOS RESPUESTA
             if (request.result == UnityWebRequest.Result.Success)
             {
-                Debug.Log("📦 JSON CRUDO: " + request.downloadHandler.text);
                 // Convertimos Texto JSON a C#
                 OpenAIResponse response = JsonUtility.FromJson<OpenAIResponse>(request.downloadHandler.text);
                 string reply = response.choices[0].message.content;
                 
-                Debug.Log("<color=green>🤖 IA Dice:</color> " + reply);
                 
                 // Esto sirve para devolver el texto al NPC que lo pidió
                 if (callback != null) callback(reply);
             }
             else
             {
-                Debug.LogError("❌ Error API: " + request.error + "\n" + request.downloadHandler.text);
+                Debug.LogError($"[SISTEMA] Error API: {request.error}\n{request.downloadHandler.text}");
             }
         }
     }

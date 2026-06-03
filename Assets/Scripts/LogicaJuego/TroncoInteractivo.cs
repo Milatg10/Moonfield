@@ -41,7 +41,7 @@ public class TroncoInteractivo : MonoBehaviour
         {
             if (inventarioDelJugador.mochila.Contains(hachaNecesaria))
             {
-                Debug.Log("¡Arrancando cinemática de cortar tronco!");
+                Debug.Log($"[SISTEMA] Rompiendo el tronco con el hacha...");
                 estaRompiendose = true; 
                 StartCoroutine(RutinaRomperTroncoWithFade()); 
             }
@@ -90,7 +90,7 @@ public class TroncoInteractivo : MonoBehaviour
         // El propio script PantallaIntro se encargará de devolverle el movimiento al jugador al pulsar Enter.
         if (gestorPantallas != null)
         {
-            string mensaje = "¡El camino está despejado!\n\nDebería buscar al viejo Michael en la plaza del pueblo para averiguar la contraseña del cofre.";
+            string mensaje = "¡El camino está despejado!\n\nDebería buscar al viejo Michael en la plaza del pueblo para conseguir la contraseña del cofre de la playa (Quizás si le cuento algún chisme jugoso...)";
             gestorPantallas.MostrarNuevoMensaje(mensaje);
         }
         else 

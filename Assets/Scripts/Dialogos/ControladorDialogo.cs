@@ -53,6 +53,9 @@ public class ControladorDialogo : MonoBehaviour
 
         amistadPam = 0; 
         cajaDialogo.SetActive(true); 
+        
+        Debug.Log($"\n[DIÁLOGO] --- Iniciando conversación de opciones con {primerNodo.nombreNPC} ---");
+        
         MostrarNodo(primerNodo);
     }
 
@@ -93,6 +96,9 @@ public class ControladorDialogo : MonoBehaviour
         
         amistadPam += respuestaElegida.cambioAmistad;
 
+        GeneradorReportes.clicsClasicos++;
+        Debug.Log($"[DIÁLOGO - {nodoActual.nombreNPC}] Jugador selecciona: \"{respuestaElegida.textoBoton}\". (Amistad actual: {amistadPam})");
+
         if (respuestaElegida.siguienteNodo != null) 
         {
             MostrarNodo(respuestaElegida.siguienteNodo);
@@ -111,10 +117,6 @@ public class ControladorDialogo : MonoBehaviour
 
     public void CerrarDialogo()
     {
-        // ¡AQUÍ COMPROBAMOS QUIÉN ESTÁ INTENTANDO CERRAR!
-        Debug.Log($"🔴 1. [CONTROLADOR] Soy el Controlador llamado '{gameObject.name}' con el DNI: {gameObject.GetInstanceID()}. Cerrando diálogo...");
-        Debug.Log($"🔴 1B. [CONTROLADOR] ¿Hay evento esperando en MI buzón? " + (eventoAlCerrar != null));
-        
         cajaDialogo.SetActive(false); 
 
         if (relojDelJuego != null) relojDelJuego.elTiempoPasa = true;
@@ -123,37 +125,29 @@ public class ControladorDialogo : MonoBehaviour
         
         if (eventoAlCerrar != null)
         {
-            Debug.Log("🔴 2. [CONTROLADOR] Ejecutando el evento guardado...");
             eventoAlCerrar.Invoke(); 
             eventoAlCerrar = null;   
-        }
-        else
-        {
-            Debug.LogWarning("🔴 [ATENCIÓN] El eventoAlCerrar estaba vacío. El NPC no mandó instrucciones.");
         }
     }
 
     public void ActivarHachaEnMapa()
     {
-        Debug.Log("🪓 3. [HACHA] ¡Se acaba de llamar a ActivarHachaEnMapa!");
+        GeneradorReportes.fracasosTotales++;
+        Debug.Log($"[EVENTO] Resultado: FRACASO. El hacha se queda clavada en el mapa.");
         
         if (hachaFisicaEnMapa != null)
         {
             hachaFisicaEnMapa.SetActive(true); 
-            Debug.Log("🪓 4. [HACHA] ¡Hacha física encendida con éxito!");
-        }
-        else
-        {
-            Debug.LogError("🪓 [ERROR DE HACHA] La función se ejecutó, pero el hueco 'Hacha Fisica En Mapa' del Inspector está VACÍO.");
         }
     }
 
     public void EntregarHachaAlJugador()
     {
+        Debug.Log($"[EVENTO] Resultado: ÉXITO. Hacha entregada al jugador.");
+        
         if (inventario != null && hachaParaEntregar != null) 
         {
             inventario.AñadirObjeto(hachaParaEntregar);
-            Debug.Log("Hacha añadida al inventario.");
         }
         tieneHacha = true; 
     }
@@ -161,6 +155,5 @@ public class ControladorDialogo : MonoBehaviour
     public void AprenderSecreto()
     {
         conoceSecreto = true;
-        Debug.Log("¡El jugador ha aprendido la contraseña de Michael!");
     }
 }

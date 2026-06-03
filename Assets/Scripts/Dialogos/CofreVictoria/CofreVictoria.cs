@@ -12,11 +12,9 @@ public class CofreVictoria : MonoBehaviour
     public Sprite cofreCerrado;  
     public Sprite cofreAbierto;  
 
-    [Header("Interfaz Final (Antigua)")]
+    [Header("Interfaz Final")]
     public GameObject panelVictoria; 
-
-    [Header("=== NUEVO GESTOR FINAL ===")]
-    public PantallaIntro gestorPantallas; // ¡AQUÍ ESTÁ LA CONEXIÓN AL MENÚ!
+    public PantallaIntro gestorPantallas; 
 
     [Header("Interfaz de Contraseña")]
     public GameObject panelPassword; 
@@ -25,8 +23,6 @@ public class CofreVictoria : MonoBehaviour
     
     [Header("Mensaje de Error")]
     public GameObject panelError; 
-
-    [Header("Diálogo de Pista (Acertijo)")]
     public NodoDialogo nodoPista; 
 
     void Start()
@@ -58,31 +54,35 @@ public class CofreVictoria : MonoBehaviour
     {
         CancelInvoke("BorrarError"); 
 
-        // ¡EL MOMENTO DE LA VICTORIA!
-        if (campoPassword.text.Trim().ToUpper() == passwordCorrecta.Trim().ToUpper())
+        string intento = campoPassword.text.Trim();
+        Debug.Log($"[COFRE] El jugador ha introducido el código: \"{intento}\"");
+
+        if (intento.ToUpper() == passwordCorrecta.Trim().ToUpper())
         {
+
+            GeneradorReportes.LanzarMetricasAlLog();
+
+            Debug.Log("[COFRE] ¡CÓDIGO CORRECTO! El cofre se ha abierto con éxito. Fin de la demo.");
+
             CerrarPanelPassword(); 
+            if (spriteRendererDelCofre != null && cofreAbierto != null) spriteRendererDelCofre.sprite = cofreAbierto;
             
-            // 1. Cambiamos el dibujo al cofre abierto
-            if (spriteRendererDelCofre != null && cofreAbierto != null) 
-                spriteRendererDelCofre.sprite = cofreAbierto;
-            
-            // 2. ¡Lanzamos la pantalla negra que nos lleva al Menú!
             if (gestorPantallas != null)
             {
-                string mensajeFinal = "¡Has abierto el cofre y finalizado el juego!\n\nGracias por jugar a la demo de Moonfield.";
+                string mensajeFinal = "¡Has abierto el cofre!\n\nGracias por jugar a la demo de Moonfield.";
                 gestorPantallas.MostrarFinalJuego(mensajeFinal);
             }
             else
             {
-                // Red de seguridad: si se te olvida arrastrar la pantalla en el Inspector, usa el panel viejo
                 if (panelVictoria != null) panelVictoria.SetActive(true);
                 if (scriptDelJugador != null) scriptDelJugador.puedeMoverse = false; 
             }
         }
-        // SI LA CONTRASEÑA ES INCORRECTA:
         else
         {
+            GeneradorReportes.fracasosTotales++;
+            Debug.Log($"[SISTEMA] Contraseña incorrecta: '{campoPassword.text}'.");
+            
             if (controlador != null && controlador.conoceSecreto == true)
             {
                 CerrarPanelPassword();

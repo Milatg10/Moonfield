@@ -22,7 +22,7 @@ public class SistemaInventario : MonoBehaviour
     public void AñadirObjeto(ObjetoInventario nuevoObjeto)
     {
         mochila.Add(nuevoObjeto);
-        Debug.Log("Has conseguido: " + nuevoObjeto.nombreObjeto);
+        Debug.Log($"[SISTEMA] Has conseguido: {nuevoObjeto.nombreObjeto}");
         ActualizarUI(); // Refrescamos la barra visual
     }
 

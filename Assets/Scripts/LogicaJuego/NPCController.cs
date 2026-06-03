@@ -94,20 +94,14 @@ public class NPCController : MonoBehaviour
             
             if (controladorClasico != null && primerNodo != null)
             {
-                // ¡AQUÍ ESTÁ EL ESCÁNER DE DNI!
-                Debug.Log($"🟢 1. [NPC] Soy {gameObject.name}. Le estoy metiendo las reglas de éxito/fracaso al Controlador llamado '{controladorClasico.gameObject.name}' que tiene el DNI: {controladorClasico.gameObject.GetInstanceID()}");
-
                 controladorClasico.eventoAlCerrar = () => 
                 {
-                    Debug.Log("🟢 2. [NPC LAMBDA] ¡El Controlador me ha llamado de vuelta! Evaluando amistad: " + controladorClasico.amistadPam);
                     if (controladorClasico.amistadPam >= 1)
                     {
-                        Debug.Log("🟢 3A. [NPC] ¡Éxito! Disparando evento de éxito...");
                         if (eventoAlTenerExito != null) eventoAlTenerExito.Invoke();
                     }
                     else
                     {
-                        Debug.Log("🟢 3B. [NPC] Fracaso. Disparando evento de fracaso...");
                         if (eventoAlFracasar != null) eventoAlFracasar.Invoke();
                     }
                 };
@@ -142,6 +136,12 @@ public class NPCController : MonoBehaviour
         intentosActuales--; 
         textoPantalla.text = nombreNPC + " está pensando...";
         string mensajeJugador = cajetinEntrada.text; 
+
+        GeneradorReportes.mensajesIA++;
+        string[] palabras = mensajeJugador.Split(new char[] { ' ', '.', '?', ',', '!' }, StringSplitOptions.RemoveEmptyEntries);
+        GeneradorReportes.palabrasTotalesIA += palabras.Length;
+        Debug.Log($"[DIÁLOGO IA - {nombreNPC}] Jugador escribe: \"{mensajeJugador}\"");
+
         cajetinEntrada.text = ""; 
         cajetinEntrada.interactable = false; 
 
@@ -150,8 +150,12 @@ public class NPCController : MonoBehaviour
 
     void MostrarRespuesta(string respuesta)
     {
+        Debug.Log($"[DIÁLOGO IA - {nombreNPC}] IA responde: \"{respuesta}\"");
+
         if (!string.IsNullOrEmpty(etiquetaExito) && respuesta.Contains(etiquetaExito))
         {
+            Debug.Log($"[SISTEMA IA] Resultado con {nombreNPC}: ÉXITO. Entregando recompensa.");
+
             respuesta = respuesta.Replace(etiquetaExito, "").Trim();
             if (eventoAlTenerExito != null) eventoAlTenerExito.Invoke();
             
@@ -163,6 +167,8 @@ public class NPCController : MonoBehaviour
 
         if (!string.IsNullOrEmpty(etiquetaFracaso) && respuesta.Contains(etiquetaFracaso))
         {
+            Debug.Log($"[SISTEMA IA] Resultado con {nombreNPC}: FRACASO. El NPC se ha ofendido.");
+
             respuesta = respuesta.Replace(etiquetaFracaso, "").Trim();
             intentosActuales = 0; 
             
@@ -175,6 +181,8 @@ public class NPCController : MonoBehaviour
 
         if (intentosActuales <= 0)
         {
+            Debug.Log($"[SISTEMA IA] Resultado con {nombreNPC}: FRACASO. El jugador se ha quedado sin intentos.");
+
             textoPantalla.text = respuesta + "\n\n<size=75%><color=orange>[Pulsa Enter para continuar]</color></size>";
             cajetinEntrada.interactable = false;
             esperandoEnter = true;

@@ -16,6 +16,7 @@ public class GestorModoJuego : MonoBehaviour
             npc.modoIAActivo = activarIA;
         }
 
-        Debug.Log("🎮 El juego ha arrancado. ¿Modo IA activado?: " + activarIA);
+        string textoModo = activarIA ? "MODO IA" : "MODO ÁRBOL CLÁSICO";
+        Debug.Log($"[SISTEMA] Partida cargada con éxito. Configuración actual: {textoModo}");
     }
 }

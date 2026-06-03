@@ -24,7 +24,7 @@ public class MenuPrincipal : MonoBehaviour
 
     public void SalirJuego()
     {
-        Debug.Log("Saliendo del juego...");
-        Application.Quit(); // Nota: Esto solo cierra el juego cuando ya está exportado (.exe)
+        Debug.Log($"[SISTEMA] Saliendo del juego...");
+        Application.Quit(); 
     }
 }

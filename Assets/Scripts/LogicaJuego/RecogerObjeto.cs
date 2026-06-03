@@ -3,7 +3,7 @@ using UnityEngine;
 public class RecogerObjeto : MonoBehaviour
 {
     [Header("=== QUÉ OBJETO ES ===")]
-    [Tooltip("Arrastra aquí la cajita ScriptableObject de este objeto (ej. el Hacha)")]
+    [Tooltip("Arrastra aquí la cajita ScriptableObject de este objeto ")]
     public ObjetoInventario datosDelObjeto; 
 
     [Header("=== CONEXIÓN CON EL SISTEMA ===")]
@@ -19,11 +19,11 @@ public class RecogerObjeto : MonoBehaviour
             if (inventario != null && datosDelObjeto != null)
             {
                 inventario.AñadirObjeto(datosDelObjeto);
-                Debug.Log("¡Has pisado y recogido: " + datosDelObjeto.nombreObjeto + "!");
+                Debug.Log($"[SISTEMA] ¡Has pisado y recogido: {datosDelObjeto.nombreObjeto}!");
             }
             else
             {
-                Debug.LogWarning("⚠️ Falta asignar el Inventario o los Datos del Objeto en el Inspector.");
+                Debug.LogWarning("[SISTEMA] No has asignado el inventario o los datos del objeto en el inspector.");
             }
 
             // 2. Lo hacemos desaparecer del mapa

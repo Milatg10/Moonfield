@@ -67,7 +67,7 @@ public class MenuPausa : MonoBehaviour
 
     public void SalirJuego()
     {
-        Debug.Log("Saliendo de la demo...");
+        Debug.Log($"[SISTEMA] Saliendo de la demo...");
         Application.Quit();
     }
 }
