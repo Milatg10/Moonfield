@@ -96,3 +96,129 @@ Assets/
     │   └── RelojJuego.cs                 # Reloj in-game con ciclo día/noche por gradiente
     ├── Interfaz/
     │   ├── CambiarCursor.cs              # Cursor personalizado según contexto
+    │   ├── GestorModoJuego.cs            # Lee PlayerPrefs y propaga el modo a los NPCController
+    │   ├── MenuPausa.cs                  # Gestión del menú de pausa
+    │   ├── MenuPrincipal.cs              # Menú principal con selección de modo de juego
+    │   └── PantallaIntro.cs              # Pantalla de intro y pantalla de fin de juego
+    ├── Inventario/
+    │   ├── ObjetoInventario.cs           # Datos de un ítem (nombre e icono)
+    │   └── SistemaInventario.cs          # Mochila del jugador y sincronización con la UI
+    ├── LogicaJuego/
+    │   ├── LLMService.cs                 # Cliente HTTP de la API de OpenAI
+    │   ├── Movement.cs                   # Movimiento 2D del jugador con Rigidbody2D
+    │   ├── NPCController.cs              # Controlador de NPC: árbol clásico y modo IA
+    │   ├── ObjetoTransparente.cs         # Objetos que se tornan semitransparentes al cubrirlos
+    │   ├── RecogerObjeto.cs              # Añade ítems al inventario al entrar en contacto
+    │   └── TroncoInteractivo.cs          # Objeto interactivo con lógica de juego propia
+    └── MusicayReport/
+        ├── GeneradorReportes.cs          # Captura logs y métricas → archivo .txt en disco
+        └── MusicaFondo.cs                # Singleton de AudioSource persistente entre escenas
+```
+
+---
+
+## ⚙️ Configuración y Puesta en Marcha
+
+### Requisitos previos
+
+- [Unity Hub](https://unity.com/download) con Unity Editor **6000.3.10f1** instalado
+- Clave de API de OpenAI con acceso al modelo `gpt-4o-mini` _(solo necesaria para el Modo IA)_
+
+---
+
+### 1. Clonar el repositorio
+
+```bash
+git clone <url-del-repositorio>
+cd Moonfield
+```
+
+### 2. Abrir el proyecto en Unity
+
+1. Abre **Unity Hub**.
+2. Haz clic en **Add project from disk**.
+3. Selecciona la carpeta raíz `Moonfield/`.
+4. Abre el proyecto con la versión **6000.3.10f1**.
+
+> 💡 Unity descargará e importará los paquetes automáticamente en el primer arranque. Esto puede tardar varios minutos.
+
+---
+
+### 3. Configurar la clave de la API de OpenAI
+
+Crea el archivo `Assets/StreamingAssets/secrets.json` con el siguiente contenido:
+
+```json
+{
+  "openai_api_key": "sk-XXXXXXXXXXXXXXXXXXXXXXXX"
+}
+```
+
+> ⚠️ **Seguridad:** este archivo está excluido del control de versiones. Nunca lo subas a un repositorio público. La clave se carga en tiempo de ejecución desde `StreamingAssets`, la única carpeta de Unity accesible en todas las plataformas sin necesidad de AssetBundles.
+
+---
+
+### 4. Ejecutar el juego
+
+1. En el panel **Project** de Unity, abre la escena del **menú principal**.
+2. Pulsa ▶️ **Play** en el editor.
+3. Selecciona el modo de juego desde el menú y comienza la partida.
+
+---
+
+## 📊 Sistema de Métricas
+
+Al finalizar cada partida, `GeneradorReportes` escribe un archivo `.txt` en `Application.persistentDataPath`. El archivo captura **todos los eventos relevantes** mediante `Application.logMessageReceived` y añade al final un bloque de métricas agregadas de la sesión.
+
+### Métricas registradas
+
+| Métrica | Descripción |
+|---|---|
+| ⏱️ **Tiempo total** | Duración completa de la sesión en minutos y segundos |
+| ❌ **Fracasos/Errores** | Número de conversaciones fallidas y contraseñas incorrectas |
+| 🖱️ **Clics clásicos** | Opciones de botón pulsadas en Modo Árbol |
+| 💬 **Mensajes a la IA** | Número de mensajes enviados al LLM en Modo IA |
+| 📝 **Media palabras/mensaje** | Longitud media de los mensajes del jugador al LLM |
+
+### Ruta de los archivos de reporte (Windows)
+
+```
+C:\Users\<usuario>\AppData\LocalLow\<CompanyName>\Moonfield\
+    Reporte_Modo_Clasico_2025-01-01_12-00-00.txt
+    Reporte_Modo_IA_2025-01-01_12-30-00.txt
+```
+
+### Prefijos de log estandarizados
+
+Todos los eventos del juego siguen una convención de prefijos para facilitar el filtrado y análisis:
+
+```
+[SISTEMA]       → Eventos del motor: carga de escena, configuración de modo
+[DIÁLOGO]       → Inicio y progreso de conversaciones en árbol clásico
+[DIÁLOGO IA]    → Mensajes del jugador y respuestas del LLM
+[SISTEMA IA]    → Detección de etiquetas de éxito o fracaso
+[EVENTO]        → Consecuencias narrativas (obtención de objetos, penalizaciones)
+[COFRE]         → Intentos de introducción de contraseña
+```
+
+---
+
+## 🎓 Contexto Académico
+
+Este proyecto es el **artefacto experimental** del TFG:
+
+> *"Diseño e implementación de un videojuego para la comparación de sistemas de diálogo clásicos e impulsados por LLM"*
+
+El prototipo sirve como banco de pruebas para recoger datos cuantitativos (métricas automáticas de sesión) y cualitativos (cuestionarios post-partida) sobre las diferencias en la **experiencia de usuario** entre los dos paradigmas de interacción. Ambos modos son funcionalmente equivalentes en cuanto al objetivo de juego, lo que permite aislar la variable de interacción lingüística en el análisis comparativo.
+
+---
+
+## 👩‍💻 Autora
+
+**Milagros Tejado García**  
+Grado en Ingeniería Informática  
+📧 milatejado10@gmail.com
+
+---
+
+*Proyecto académico — prototipo experimental. No distribuir sin autorización.*
