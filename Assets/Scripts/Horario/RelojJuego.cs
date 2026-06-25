@@ -1,7 +1,10 @@
 using UnityEngine;
-using UnityEngine.UI; // Para poder usar Imágenes
+using UnityEngine.UI;
 using TMPro;
 
+// Simula el paso del tiempo en el juego: avanza minutos y horas en tiempo real,
+// actualiza la UI con el día y la hora actuales, y tinta una capa de imagen
+// según un gradiente de color para representar el ciclo de día y noche.
 public class RelojJuego : MonoBehaviour
 {
     [Header("Textos de la UI")]
@@ -9,8 +12,8 @@ public class RelojJuego : MonoBehaviour
     public TextMeshProUGUI textoHora;
 
     [Header("Ciclo Día y Noche")]
-    public Image capaNoche;        // La imagen que acabamos de crear
-    public Gradient colorDelCielo; // La barrita mágica de colores
+    public Image capaNoche;
+    public Gradient colorDelCielo;
 
     [Header("Tiempo Actual")]
     public int diaActual = 1;
@@ -18,12 +21,13 @@ public class RelojJuego : MonoBehaviour
     public float minutoActual = 0f;
 
     [Header("Ajustes")]
-    public float velocidadReloj = 10f; 
-    public bool elTiempoPasa = true; 
+    public float velocidadReloj = 10f;
+    // Permite congelar el tiempo durante diálogos u otras secuencias que requieran pausar el juego
+    public bool elTiempoPasa = true;
 
     void Update()
     {
-        if (!elTiempoPasa) return; 
+        if (!elTiempoPasa) return;
 
         minutoActual += Time.deltaTime * velocidadReloj;
 
@@ -41,14 +45,12 @@ public class RelojJuego : MonoBehaviour
 
         ActualizarUI();
 
-        // --- ¡LA MAGIA DE LA LUZ! ---
         if (capaNoche != null)
         {
-            // Calculamos en qué porcentaje del día estamos (0.0 a 1.0)
+            // Se normaliza la hora actual a un valor entre 0 y 1 para muestrear el gradiente
             float tiempoTotal = horaActual + (minutoActual / 60f);
             float porcentajeDia = tiempoTotal / 24f;
 
-            // Le decimos a la capa que coja el color exacto de la barrita
             capaNoche.color = colorDelCielo.Evaluate(porcentajeDia);
         }
     }
@@ -56,6 +58,7 @@ public class RelojJuego : MonoBehaviour
     void ActualizarUI()
     {
         textoDia.text = "Día " + diaActual;
+        // El formato {0:00} garantiza que la hora y los minutos siempre ocupen dos dígitos (ej. 08:05)
         textoHora.text = string.Format("{0:00}:{1:00}", horaActual, (int)minutoActual);
     }
 }

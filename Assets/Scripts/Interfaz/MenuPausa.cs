@@ -1,15 +1,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Gestiona el menú de pausa: congela y descongela el juego al pulsar Escape
+// y ofrece las acciones de reanudar, volver al menú principal y salir.
 public class MenuPausa : MonoBehaviour
 {
     [Header("Interfaz de Pausa")]
-    public GameObject panelPausa; 
-    public string nombreEscenaMenu = "Menu"; 
-    
-    [Header("=== CONEXIONES ===")]
-    public Movement scriptDelJugador; 
-    public RelojJuego relojDelJuego; 
+    public GameObject panelPausa;
+    public string nombreEscenaMenu = "Menu";
+
+    [Header("Conexiones")]
+    public Movement scriptDelJugador;
+    public RelojJuego relojDelJuego;
 
     private bool estaPausado = false;
 
@@ -22,14 +24,8 @@ public class MenuPausa : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (estaPausado)
-            {
-                Reanudar();
-            }
-            else
-            {
-                Pausar();
-            }
+            if (estaPausado) Reanudar();
+            else Pausar();
         }
     }
 
@@ -37,31 +33,29 @@ public class MenuPausa : MonoBehaviour
     {
         estaPausado = true;
         if (panelPausa != null) panelPausa.SetActive(true);
-        
-        Time.timeScale = 0f; 
-        
+
+        // Time.timeScale a 0 detiene todas las físicas y animaciones basadas en deltaTime
+        Time.timeScale = 0f;
+
         if (scriptDelJugador != null) scriptDelJugador.puedeMoverse = false;
-        
-        // ¡Congelamos el reloj!
-        if (relojDelJuego != null) relojDelJuego.elTiempoPasa = false; 
+        if (relojDelJuego != null) relojDelJuego.elTiempoPasa = false;
     }
 
     public void Reanudar()
     {
         estaPausado = false;
         if (panelPausa != null) panelPausa.SetActive(false);
-        
-        Time.timeScale = 1f; 
-        
+
+        Time.timeScale = 1f;
+
         if (scriptDelJugador != null) scriptDelJugador.puedeMoverse = true;
-        
-        // ¡Devolvemos el reloj a la normalidad!
-        if (relojDelJuego != null) relojDelJuego.elTiempoPasa = true; 
+        if (relojDelJuego != null) relojDelJuego.elTiempoPasa = true;
     }
 
     public void VolverAlMenu()
     {
-        Time.timeScale = 1f; 
+        // Se restaura el timeScale antes de cambiar de escena para que la nueva no arranque congelada
+        Time.timeScale = 1f;
         SceneManager.LoadScene(nombreEscenaMenu);
     }
 

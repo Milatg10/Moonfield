@@ -4,20 +4,23 @@ using System.Text;
 using System.Collections;
 using System.IO;
 
+// Servicio que encapsula la comunicación con la API de OpenAI.
+// Carga la clave en local desde StreamingAssets para no exponerla en el código fuente,
+// y expone una corrutina que los NPCs invocan para obtener respuestas generadas por el modelo.
 public class LLMService : MonoBehaviour
 {
-    // Usamos el endpoint MODERNO de Chat (no el antiguo de Davinci)
     private string apiUrl = "https://api.openai.com/v1/chat/completions";
     private string apiKey = "";
 
     void Start()
     {
         LoadApiKey();
-
     }
 
     void LoadApiKey()
     {
+        // StreamingAssets es la única carpeta de Unity accesible en tiempo de ejecución
+        // desde todas las plataformas sin necesidad de AssetBundles
         string path = Path.Combine(Application.streamingAssetsPath, "secrets.json");
         if (File.Exists(path))
         {
@@ -32,49 +35,40 @@ public class LLMService : MonoBehaviour
         }
     }
 
-    // Esta función es la que usarás desde tus NPCs
     public IEnumerator CallAI(string systemPrompt, string userMessage, System.Action<string> callback = null)
     {
         if (string.IsNullOrEmpty(apiKey)) yield break;
 
-        // 1. CREAMOS EL PAQUETE DE DATOS (Usando las clases de abajo)
         OpenAIRequest requestData = new OpenAIRequest();
-        requestData.model = "gpt-4o-mini"; // Tu modelo elegido
+        requestData.model = "gpt-4o-mini";
         requestData.messages = new Message[]
         {
             new Message { role = "system", content = systemPrompt },
             new Message { role = "user", content = userMessage }
         };
-        
-        // CORRECCIÓN APLICADA: Usamos el nombre nuevo del parámetro
-        requestData.max_completion_tokens = 1000; 
 
-        // Convertimos C# a Texto JSON
+        // max_completion_tokens reemplaza al antiguo max_tokens en los modelos gpt-4o en adelante
+        requestData.max_completion_tokens = 1000;
+
         string jsonBody = JsonUtility.ToJson(requestData);
 
-        // 2. ENVIAMOS A INTERNET
         using (UnityWebRequest request = new UnityWebRequest(apiUrl, "POST"))
         {
             byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonBody);
             request.uploadHandler = new UploadHandlerRaw(bodyRaw);
             request.downloadHandler = new DownloadHandlerBuffer();
-            
+
             request.SetRequestHeader("Content-Type", "application/json");
             request.SetRequestHeader("Authorization", "Bearer " + apiKey);
 
-            // Esperamos...
             yield return request.SendWebRequest();
 
-            // 3. RECIBIMOS RESPUESTA
             if (request.result == UnityWebRequest.Result.Success)
             {
-                // Convertimos Texto JSON a C#
                 OpenAIResponse response = JsonUtility.FromJson<OpenAIResponse>(request.downloadHandler.text);
                 string reply = response.choices[0].message.content;
-                
-                
-                // Esto sirve para devolver el texto al NPC que lo pidió
-                if (callback != null) callback(reply);
+
+                callback?.Invoke(reply);
             }
             else
             {
@@ -84,8 +78,8 @@ public class LLMService : MonoBehaviour
     }
 }
 
-// --- ESTRUCTURAS DE DATOS (MOLDES) ---
-// No las borres, Unity las necesita para "traducir" a JSON
+// Las siguientes clases son los moldes que JsonUtility necesita para serializar
+// la petición a JSON y deserializar la respuesta de la API con la misma estructura
 
 [System.Serializable]
 public class SecretsData { public string openai_api_key; }
@@ -95,7 +89,7 @@ public class OpenAIRequest
 {
     public string model;
     public Message[] messages;
-    public int max_completion_tokens; // Nombre corregido para GPT-5/GPT-4o
+    public int max_completion_tokens;
 }
 
 [System.Serializable]

@@ -1,14 +1,16 @@
 using UnityEngine;
 
+// Lee la preferencia de modo de juego guardada en la escena de menú y la propaga
+// a todos los NPCController presentes en la escena al iniciar la partida.
 public class GestorModoJuego : MonoBehaviour
 {
     void Start()
     {
-        // Leemos la memoria. Si no hay nada, por defecto será 0 (Clásico)
+        // El valor por defecto 0 corresponde al modo árbol clásico, que se usa si el jugador
+        // nunca ha guardado una preferencia (primera ejecución o PlayerPrefs borradas)
         int modoGuardado = PlayerPrefs.GetInt("ModoIA", 0);
         bool activarIA = (modoGuardado == 1);
 
-        // Buscamos a TODOS los NPCs del mapa automáticamente
         NPCController[] todosLosNPCs = FindObjectsOfType<NPCController>();
 
         foreach (NPCController npc in todosLosNPCs)

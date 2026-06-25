@@ -1,19 +1,20 @@
 using UnityEngine;
 
+// Controla el movimiento del jugador mediante un Rigidbody2D.
+// La lectura de input ocurre en Update y el desplazamiento físico en FixedUpdate
+// para evitar que el personaje atraviese colisionadores a velocidades altas.
 public class Movement : MonoBehaviour
 {
     [Header("Estado")]
     public bool puedeMoverse = true;
     public float speed = 5f;
     public Animator animator;
-    
-    // 1. Creamos una variable para el cuerpo físico
+
     private Rigidbody2D rb;
     private Vector2 direction;
 
     private void Start()
     {
-        // 2. Al empezar, buscamos el Rigidbody2D del personaje
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -21,34 +22,25 @@ public class Movement : MonoBehaviour
     {
         if (!puedeMoverse)
         {
-            // --- ¡NUEVO Y CRUCIAL! ---
-            // Forzamos la dirección a cero para que FixedUpdate no mueva el Rigidbody
-            direction = Vector2.zero; 
-            // --------------------------
-
-            // Clavamos los frenos de la física poniéndola a cero
-            // Nota: GetComponent<Rigidbody2D>() está bien, pero 'rb' es más rápido ya que lo buscamos en Start
+            // Se resetean dirección y velocidad para que FixedUpdate no aplique
+            // el último vector leído mientras el movimiento estaba permitido
+            direction = Vector2.zero;
             rb.linearVelocity = Vector2.zero;
-
-            AnimateMovement(Vector2.zero); // Apaga la animación de caminar
-
-            // Nos salimos para no leer las teclas
-            return; 
+            AnimateMovement(Vector2.zero);
+            return;
         }
-        // Obtener input del jugador (esto se queda en Update para que sea rápido)
+
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        // Crear vector de movimiento
+        // normalized garantiza velocidad constante en diagonal (sin el √2 de velocidad extra)
         direction = new Vector2(horizontal, vertical).normalized;
 
         AnimateMovement(direction);
     }
 
-    // 3. NUEVO: Usamos FixedUpdate para mover el Rigidbody (Físicas seguras)
     private void FixedUpdate()
     {
-        // Movemos el cuerpo físico suavemente sin atravesar paredes
         rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
     }
 

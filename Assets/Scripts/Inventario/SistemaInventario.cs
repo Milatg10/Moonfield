@@ -1,49 +1,47 @@
 using UnityEngine;
-using UnityEngine.UI; // Para controlar las imágenes de la UI
-using System.Collections.Generic; // Para usar Listas
+using UnityEngine.UI;
+using System.Collections.Generic;
 
+// Gestiona el inventario del jugador: almacena los objetos recogidos y
+// sincroniza su representación visual con los slots de la barra de UI.
 public class SistemaInventario : MonoBehaviour
 {
-    [Header("Mis Objetos Guardados")]
-    // Aquí el juego recordará qué objetos tienes
+    [Header("Objetos Guardados")]
     public List<ObjetoInventario> mochila = new List<ObjetoInventario>();
 
     [Header("Conexión con la UI")]
-    // Aquí arrastraremos las 10 imágenes (solo los iconos) de tus slots
-    public Image[] iconosSlotsUI; 
+    public Image[] iconosSlotsUI;
 
     void Start()
     {
-        // Al empezar el juego, nos aseguramos de que todos los iconos estén invisibles
         ActualizarUI();
     }
 
-    // Esta es la función mágica que llamaremos cuando Pam nos dé el hacha
     public void AñadirObjeto(ObjetoInventario nuevoObjeto)
     {
         mochila.Add(nuevoObjeto);
         Debug.Log($"[SISTEMA] Has conseguido: {nuevoObjeto.nombreObjeto}");
-        ActualizarUI(); // Refrescamos la barra visual
+        ActualizarUI();
     }
 
-    // Esta función dibuja los objetos en los cuadraditos correspondientes
     void ActualizarUI()
     {
-        // 1. Primero, hacemos invisibles todos los iconos de los 10 slots
+        // Se resetean todos los slots a transparente para partir de un estado limpio
         for (int i = 0; i < iconosSlotsUI.Length; i++)
         {
-            iconosSlotsUI[i].color = new Color(1, 1, 1, 0); // Transparente (Alpha a 0)
+            iconosSlotsUI[i].color = new Color(1, 1, 1, 0);
             iconosSlotsUI[i].sprite = null;
         }
 
-        // 2. Luego, encendemos solo los iconos de los objetos que tenemos en la mochila
+        // Se pintan únicamente los slots que corresponden a objetos en la mochila;
+        // el guard i < iconosSlotsUI.Length evita un desbordamiento si la mochila
+        // tuviera más objetos que slots disponibles en la UI
         for (int i = 0; i < mochila.Count; i++)
         {
-            // Solo si no nos hemos pasado del límite de 10 slots
-            if (i < iconosSlotsUI.Length) 
+            if (i < iconosSlotsUI.Length)
             {
                 iconosSlotsUI[i].sprite = mochila[i].icono;
-                iconosSlotsUI[i].color = new Color(1, 1, 1, 1); // Visible (Alpha a 1)
+                iconosSlotsUI[i].color = new Color(1, 1, 1, 1);
             }
         }
     }

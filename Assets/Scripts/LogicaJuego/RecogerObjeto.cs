@@ -1,21 +1,20 @@
 using UnityEngine;
 
+// Añade el objeto al inventario del jugador al entrar en contacto con él
+// y desactiva el GameObject del mapa para simular que ha sido recogido.
 public class RecogerObjeto : MonoBehaviour
 {
-    [Header("=== QUÉ OBJETO ES ===")]
-    [Tooltip("Arrastra aquí la cajita ScriptableObject de este objeto ")]
-    public ObjetoInventario datosDelObjeto; 
+    [Header("Qué objeto es")]
+    [Tooltip("Arrastra aquí la cajita ScriptableObject de este objeto")]
+    public ObjetoInventario datosDelObjeto;
 
-    [Header("=== CONEXIÓN CON EL SISTEMA ===")]
-    public SistemaInventario inventario; // El gestor de la mochila
+    [Header("Conexión con el sistema")]
+    public SistemaInventario inventario;
 
-    // Detectamos cuando alguien entra en la zona invisible (lo pisa)
     private void OnTriggerEnter2D(Collider2D otroObjeto)
     {
-        // Comprobamos si el que lo ha pisado es el jugador
         if (otroObjeto.CompareTag("Player"))
         {
-            // 1. Lo metemos en la mochila al instante
             if (inventario != null && datosDelObjeto != null)
             {
                 inventario.AñadirObjeto(datosDelObjeto);
@@ -26,8 +25,8 @@ public class RecogerObjeto : MonoBehaviour
                 Debug.LogWarning("[SISTEMA] No has asignado el inventario o los datos del objeto en el inspector.");
             }
 
-            // 2. Lo hacemos desaparecer del mapa
-            gameObject.SetActive(false); 
+            // Se desactiva en lugar de destruir para preservar referencias del inspector en caliente
+            gameObject.SetActive(false);
         }
     }
 }

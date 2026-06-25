@@ -1,9 +1,11 @@
 using UnityEngine;
 
-// Esto nos permite crear "tarjetas" de objetos haciendo clic derecho en Unity
+// Define los datos de un objeto del inventario como asset reutilizable.
+// Cada instancia representa un tipo de objeto distinto (nombre e icono)
+// que el SistemaInventario puede añadir al jugador en tiempo de ejecución.
 [CreateAssetMenu(fileName = "NuevoObjeto", menuName = "Inventario/Objeto")]
 public class ObjetoInventario : ScriptableObject
 {
-    public string nombreObjeto; // Ej: "Hacha de Pam"
-    public Sprite icono;        // El dibujo que saldrá en la barra
+    public string nombreObjeto;
+    public Sprite icono;
 }

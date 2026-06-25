@@ -1,20 +1,21 @@
 using UnityEngine;
 
+// Implementa el patrón Singleton para mantener un único AudioSource de música
+// continua entre cambios de escena. Si al cargar una escena ya existe una instancia
+// previa, la nueva se destruye para evitar que la música se superponga.
 public class MusicaFondo : MonoBehaviour
 {
     private static MusicaFondo instancia;
 
     void Awake()
     {
-        // Si no hay música sonando, yo soy la música
         if (instancia == null)
         {
             instancia = this;
-            DontDestroyOnLoad(gameObject); // ¡El escudo de la inmortalidad!
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            // Si ya hay una música sonando y vuelves al menú, destruye esta copia nueva
             Destroy(gameObject);
         }
     }
