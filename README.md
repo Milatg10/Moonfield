@@ -217,7 +217,6 @@ El prototipo sirve como banco de pruebas para recoger datos cuantitativos (métr
 
 **Milagros Tejado García**  
 Grado en Ingeniería Informática  
-📧 milatejado10@gmail.com
 
 ---
 
